@@ -1,5 +1,5 @@
 ---
-title: Lab 1 -- Installing all the tools needed for Semester 1.
+title: Lab 0 -- Installing all the tools needed for ICE-3111 Computer Vision.
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision 202122
 date: Sept 22th, 2021
