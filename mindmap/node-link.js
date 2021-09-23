@@ -7,7 +7,7 @@
 var graph_element = d3.select("#graph").node();
 
 var width = Math.floor(graph_element.getBoundingClientRect().width);
-var height = 600;
+var height = 800;
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -22,7 +22,30 @@ d3.json("network.json", function (error, json) {
 const simulation = d3.forceSimulation(json.nodes)
     .force("charge", d3.forceManyBody())
     .force("link", d3.forceLink(json.links))
-    .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .force("charge", d3.forceManyBody().strength(function (d, i) {
+        var a = i == 0 ? -500 : -250;
+        return a;
+    }).distanceMin(50).distanceMax(300));
+
+// var forceLink = d3
+//     .forceLink().id(function (d) {
+//         return d.id;
+//     })
+//     .distance(function (d) {
+//         return GetNodeDefaults(d.label).linkDistance;
+//     })
+//     .strength(0.1);
+
+// var simulation = d3.forceSimulation(json.nodes)
+//     .force("charge", d3.forceManyBody().strength(function (d, i) {
+//         var a = i == 0 ? -2000 : -1000;
+//         return a;
+//     }).distanceMin(200).distanceMax(1000))
+//     .force("center", d3.forceCenter(width / 2, height / 2))
+//     .force("y", d3.forceY(0.01))
+//     .force("x", d3.forceX(0.01))
+//     .on("tick", ticked);
 
 var svg = d3
   .select("#graph")
@@ -38,24 +61,24 @@ var svg = d3
 
 
     // Initialize the links
-    var link = svg
-      .selectAll("line")
-      .data(json.links)
-      .enter()
-      .append("line")
-        .style("stroke", "#aaa")
+    // var link = svg
+    //   .selectAll("line")
+    //   .data(json.links)
+    //   .enter()
+    //   .append("line")
+    //     .style("stroke", "#aaa")
 
-  // var link = svg
-  //   .append("g")
-  //   .attr("class", "links")
-  //   .selectAll("line")
-  //   .data(json.links)
-  //   .enter()
-  //   .append("line")
-  //   .attr("class", "link")
-  //   .style("stroke-width", function (d) {
-  //     return 3.5 * d.weight;
-  //   });
+  var link = svg
+    .append("g")
+    .attr("class", "links")
+    .selectAll("line")
+    .data(json.links)
+    .enter()
+    .append("line")
+    .attr("class", "link")
+    .style("stroke-width", function (d) {
+      return 3.5 * d.weight;
+    });
 
   var node = svg
     .append("g")
@@ -77,7 +100,7 @@ var svg = d3
     .append("circle")
     .attr("class", "nodes")
     .attr("r", function (d) {
-      return d.weight * 6;
+      return d.weight * 2;
     })
     .style("fill", function (d) {
       return color(d.group);
