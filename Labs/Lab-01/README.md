@@ -143,7 +143,7 @@ I don't use it so much.
     5. How many different pixels values an 8-bit image can have?
     6. How many different pixels values DX000000 can have (in theory)?
     7. What is the "size of a pixel in mm"? (divide the image size in mm by the image size in pixels)
-    8. What is the size in both mm and number of pixels of the diagonal of the image. Use Pythagoras' theorem: <img src="https://render.githubusercontent.com/render/math?math=\sqrt{\text{width}^2 + \text{height}^2}">
+    8. What is the size in both mm and number of pixels of the diagonal of the image. Use Pythagoras' theorem: <img src="https://render.githubusercontent.com/render/math?math=\sqrt{\text{width}^2 %2B \text{height}^2}">
 
 ## Measure distances
 
@@ -179,7 +179,7 @@ Two choices:
 2. What is the largest pixel value in the image?
 3. What is the average pixel value in the image?
 4. What is the standard deviation?
-5. What is the dynamic range? ($\text{largest pixel value} - \text{smallest pixel value}$)
+5. What is the dynamic range? (<img src="https://render.githubusercontent.com/render/math?math=\text{largest pixel value} - \text{smallest pixel value}">)
 6. The intensity histogram is a graph that shows the number of pixels in an image at each different intensity value found in that image. Plot the intensity histogram:
     - Go to the `Analyze` menu and click on `Histogram`, or
     - Use the shortcut `<CTRL+H>`.
@@ -204,7 +204,7 @@ Two choices:
 2. What is the largest pixel value in the image?
 3. What is the average pixel value in the image?
 4. What is the standard deviation?
-5. What is the dynamic range? ($\text{largest pixel value} - \text{smallest pixel value}$)
+5. What is the dynamic range? (<img src="https://render.githubusercontent.com/render/math?math=\text{largest pixel value} - \text{smallest pixel value}">)
 6. Plot the corresponding histogram.
 7. Add the histogram to your report.
 
