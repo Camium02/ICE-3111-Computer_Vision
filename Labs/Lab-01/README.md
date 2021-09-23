@@ -120,6 +120,7 @@ I don't use it so much.
 3. You should see this now:
 
 ![Screenshot](imagej-DX000000.png)
+*DICOM file courtesy of Dr Jenna Tugwell-Allsup, Research Radiographer, Betsi Cadwaladr University Health Board, Wales*
 
 4. Locate the status bar in the window that displays the image. See the blue rectangle in the image below:
 
