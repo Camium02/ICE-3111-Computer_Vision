@@ -1,5 +1,5 @@
 ---
-title: Lab 1 -- Examples of Image Analysis Using ImageJ/Fiji.
+title: Lab 1 -- Image Analysis Using ImageJ/Fiji.
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision 202122
 date: Sept 22th, 2021
@@ -7,11 +7,15 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Lab 1 -- Examples of Image Analysis Using ImageJ/Fiji
+# Lab 1 -- Image Analysis Using ImageJ/Fiji
+
 
 ## Introduction
 
 The purpose of this lab is to introduce you to the use of ImageJ2 ![(logo)](../Lab-00/icons/imagej.png). In practice, we will use Fiji ![(logo)](../Lab-00/icons/fiji.png). Fiji is an image processing package, a "batteries-included" distribution of ImageJ2, bundling a lot of plugins which facilitate scientific image analysis.
+
+This week we will start working on how images are stored. Is an image in greyscale or in colour (see `Pixel Types` in the mindmap below)? Are the pixels stored in unsigned integers values using 8 bits (`unsigned char` in C/C++ and `np.uint8` in a numpy array) or floating point numbers or something else (see `Data Types` in the mindmap below)? And why it matters.
+![Week 1 mindmap](../../mindmap/Week-01/screenshot.png)
 
 We will use a real medical radiograph to perform some measurements in the image.
 The image file is stored in the DICOM format. This is the format used to store most medical images. It's the "JPEG format of medicine".
@@ -139,11 +143,11 @@ I don't use it so much.
 
 1. Move the cursor over the image. Keep an eye on the status bar of ImageJ's main window. Describe in your own words what is happening.
 2. In the main window, find the icon that displays a straight line and click on it.
-![](click-line.png)
+![Screenshot](click-line.png)
 3. Move the cursor onto the first pixel of the image (by convention, the top-left corner)
-![](move-cursor.png)
+![Screenshot](move-cursor.png)
 4. Press and hold the left button of the mouse and move it to the last pixel of the image (by convention, the bottom-right corner).
-![](release-button.png)
+![Screenshot](release-button.png)
 5. Before you release the mouse's button, look at the status bar and note the length of the line segment you just drew.
 6. Is the distance given in mm or number of pixels? (compare with the lengths of the diagonal you computed with Pythagoras' theorem)
 7. Using the same technique (drawing a line on the image to measure a distance), give the width and height of the object in the centre of the image. Provide the information both in mm and number of pixels.
@@ -177,9 +181,9 @@ Two choices:
 ### PMMA block
 
 - Select the rectangle tool in the main ImageJ window.
-![](imagej-rectangle.png)
+![Screenshot](imagej-rectangle.png)
 - Draw a rectangle on the image to select the PMMA block as follows:
-![](imagej-PMMA.png)
+![Screenshot](imagej-PMMA.png)
 
 1. What is the smallest pixel value in the image?
 2. What is the largest pixel value in the image?
@@ -192,6 +196,19 @@ Two choices:
 ### Background
 
 Repeat the previous steps for the background as follows:
-![](imagej-background.png)
+![Screenshot](imagej-background.png)
 
 ### Compare the 3 histograms
+
+Organise your screen as I did below:
+![Screenshot](imagej-histograms.png)
+
+The main histogram is centred at the top of my screen.
+As you noticed, the pixel values of the background are lower than those of the PMMA block. As a consequence I put the histogram of the background on the left-hand side of my screen; and the histogram of the PMMA block on the right-hand side.
+Can you see how they relate? You can move the mouse over the plots to see more information. We are trying to locate the pixel intensity that separate the PMMA block from the background. See the red arrow pointing to the middle of the valley between the two peaks below:
+![Screenshot](imagej-histograms-valley.png)
+Note in your report the corresponding pixel intensity. We'll need it next week!
+
+### Next week
+
+We will exploit this value to perform our first image processing task: Segment the image to select the PMMA block only.
