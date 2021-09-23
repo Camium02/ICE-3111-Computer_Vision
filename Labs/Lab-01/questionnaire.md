@@ -1,0 +1,16 @@
+
+- What is the image size in mm?
+- What is the image size in pixels?
+- What is the data type used to store pixels? in other words, you must specify:
+    - greyscale vs. colour
+    - integer vs. floating point numbers
+        - if integer, signed or unsigned,
+        - if floating point numbers, single or double precision
+    - how many bits per pixels
+- What is the image size in number of bytes?
+    - The total number of pixels is $\text{width in pixels} \times \text{height in pixels}$.
+    - The number of values per pixel is 1 for greyscale images; 3 or 4 for colour images.
+    - $\text{number of pixels} \times \text{bits per pixels} \times{number of values per pixel}/ 8 $
+- How many different pixels values an 8-bit image can have?
+- How many different pixels values DX000000 can have (in theory)?
+- What is the "size of a pixel in mm"? (divide the image size in mm by the image size in pixels)
