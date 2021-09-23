@@ -115,7 +115,7 @@ I don't use it so much.
 ## Find the size of a PMMA block in an X-ray image
 
 
-1. Download [DX000000](DX000000).
+1. Download [DX000000](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-01/DX000000).
 2. Open `DX000000` via `File → Open`.
 3. You should see this now:
 
