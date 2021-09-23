@@ -179,7 +179,7 @@ Two choices:
 2. What is the largest pixel value in the image?
 3. What is the average pixel value in the image?
 4. What is the standard deviation?
-5. What is the dynamic range? (<img src="https://render.githubusercontent.com/render/math?math=\text{largest pixel value} - \text{smallest pixel value}">)
+5. What is the dynamic range? (<img src="https://render.githubusercontent.com/render/math?math=\text{largest pixel value} - \text{smallest pixel value} %2B 1">)
 6. The intensity histogram is a graph that shows the number of pixels in an image at each different intensity value found in that image. Plot the intensity histogram:
     - Go to the `Analyze` menu and click on `Histogram`, or
     - Use the shortcut `<CTRL+H>`.
