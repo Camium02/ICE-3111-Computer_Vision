@@ -48,13 +48,13 @@ First, you must get familiar with the user interface.
 
 ### Main windows
 
-![Screenshot](main-window.png)
+![Screenshot](images/main-window.png)
 
 It will appear on your screen. Do not resize it! This window has a Menu Bar, a Tool Bar (all the icons you can see) and a Status Bar (it will display some information when you move the cursor over an image).
 
 ### File menu
 
-![Screenshot](file-menu.png)
+![Screenshot](images/file-menu.png)
 
 I mostly use this menu to:
 
@@ -67,7 +67,7 @@ I mostly use this menu to:
 
 ### Edit menu
 
-![Screenshot](edit-menu.png)
+![Screenshot](images/edit-menu.png)
 
 I am sure you are already familiar with the `undo` functionality of a text editor. It's the same, but for an image editor. `Cut`, `Copy` and `Paste` are local to ImageJ. If you want to copy an image, or part of it, and paste it into let's say Word, you must use `Copy to System`.
 
@@ -75,7 +75,7 @@ I do not use other options very much, although they are sometimes useful to clea
 
 ### Image menu
 
-![Screenshot](image-menu.png)
+![Screenshot](images/image-menu.png)
 
 I use it ALL THE TIME. `Type` is used to change the data type used to store a pixel (8 bits, 16 bits or 32 bits, and greyscale or RGB). `Adjust` is used to control various values. `Brightness/Contrast` and `Threshold` are particularly useful.
 
@@ -84,31 +84,31 @@ Other useful options are `Crop`, `Scale`, and `Transform`.
 
 ### Process menu
 
-![Screenshot](process-menu.png)
+![Screenshot](images/process-menu.png)
 
 I use it ALL THE TIME. It is used to process the image, e.g. applying mathematical functions to images, or applying image filters.
 
 ### Analyse menu
 
-![Screenshot](analyse-menu.png)
+![Screenshot](images/analyse-menu.png)
 
 I use it ALL THE TIME to compute image statistics (min, max, average... pixel values), and compute histograms.
 
 ### Plugins
 
-![Screenshot](plugins-menu.png)
+![Screenshot](images/plugins-menu.png)
 
 All the plugins. There are too many to describe them here.
 
 ### Window
 
-![Screenshot](windons-menu.png)
+![Screenshot](images/windons-menu.png)
 
 I use it to find a window I "lost".
 
 ### Help
 
-![Screenshot](help-menu.png)
+![Screenshot](images/help-menu.png)
 
 I don't use it so much.
 
@@ -119,12 +119,12 @@ I don't use it so much.
 2. Open `DX000000` via `File → Open`.
 3. You should see this now:
 
-![Screenshot](imagej-DX000000.png)
+![Screenshot](images/imagej-DX000000.png)
 *DICOM file courtesy of Dr Jenna Tugwell-Allsup, Research Radiographer, Betsi Cadwaladr University Health Board, Wales*
 
 4. Locate the status bar in the window that displays the image. See the blue rectangle in the image below:
 
-![Screenshot](imagej-DX000000-status-bar.png)
+![Screenshot](images/imagej-DX000000-status-bar.png)
 
 3. Identify some information from the  status bar:
     1. What is the image size in mm?
@@ -150,15 +150,15 @@ I don't use it so much.
 1. Move the cursor over the image. Keep an eye on the status bar of ImageJ's main window. Describe in your own words what is happening.
 2. In the main window, find the icon that displays a straight line and click on it:
 
-![Screenshot](click-line.png)
+![Screenshot](images/click-line.png)
 
 3. Move the cursor onto the first pixel of the image (by convention, the top-left corner):
 
-![Screenshot](move-cursor.png)
+![Screenshot](images/move-cursor.png)
 
 4. Press and hold the left button of the mouse and move it to the last pixel of the image (by convention, the bottom-right corner):
 
-![Screenshot](release-button.png)
+![Screenshot](images/release-button.png)
 
 5. Before you release the mouse's button, look at the status bar and note the length of the line segment you just drew.
 6. Is the distance given in mm or number of pixels? (compare with the lengths of the diagonal you computed with Pythagoras' theorem)
@@ -194,11 +194,11 @@ Two choices:
 
 - Select the rectangle tool in the main ImageJ window:
 
-![Screenshot](imagej-rectangle.png)
+![Screenshot](images/imagej-rectangle.png)
 
 - Draw a rectangle on the image to select the PMMA block as follows:
 
-![Screenshot](imagej-PMMA.png)
+![Screenshot](images/imagej-PMMA.png)
 
 1. What is the smallest pixel value in the image?
 2. What is the largest pixel value in the image?
@@ -212,19 +212,19 @@ Two choices:
 
 Repeat the previous steps for the background as follows:
 
-![Screenshot](imagej-background.png)
+![Screenshot](images/imagej-background.png)
 
 ### Compare the 3 histograms
 
 Organise your screen as I did below:
 
-![Screenshot](imagej-histograms.png)
+![Screenshot](images/imagej-histograms.png)
 
 The main histogram is centred at the top of my screen.
 As you noticed, the pixel values of the background are lower than those of the PMMA block. As a consequence I put the histogram of the background on the left-hand side of my screen; and the histogram of the PMMA block on the right-hand side.
 Can you see how they relate? You can move the mouse over the plots to see more information. We are trying to locate the pixel intensity that separate the PMMA block from the background. See the red arrow pointing to the middle of the valley between the two peaks below:
 
-![Screenshot](imagej-histograms-valley.png)
+![Screenshot](images/imagej-histograms-valley.png)
 
 Note in your report the corresponding pixel intensity. We'll need it next week!
 
