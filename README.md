@@ -3,11 +3,7 @@ All the code and documents that I am happy to share from the Computer Vision mod
 
 ## Contents:
 
-- [Labs](Labs): Contains all the labs
-    - [Lab-00](Lab-00): Install the tools needed to compete the labs.
-    - [Lab-01](Lab-01): Image Analysis Using ImageJ/Fiji.
-- [Mindmap](mindmap): Contains a mindmap of all the concepts addressed in this module.
-    - [csv2json.py](mindmap/csv2json.py): Convert the database from CSV to JSON
-    - [network.csv](mindmap/network.csv): The database in a CSV spreadsheet
-    - [network.json](mindmap/network.json): The database in JSON format
-    - [network.html](mindmap/network.html): The visualisation of the mindmap 
+- [Labs](tree/main/Labs): Contains all the labs
+    - [Lab-00](tree/main/Lab-00): Install the tools needed to compete the labs.
+    - [Lab-01](tree/main/Lab-01): Image Analysis Using ImageJ/Fiji.
+- [Mindmap](tree/main/mindmap): Contains a mindmap of all the concepts addressed in this module.
