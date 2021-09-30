@@ -136,8 +136,7 @@ I don't use it so much.
             - if floating point numbers, single or double precision
         - how many bits per pixels
     4. What is the image size in number of bytes?
-        - The total number of pixels is:
-<img src="https://render.githubusercontent.com/render/math?math=\text{width in pixels} \times \text{height in pixels}">
+        - The total number of pixels is: <img src="https://render.githubusercontent.com/render/math?math=\text{width in pixels} \times \text{height in pixels}">
         - The number of values per pixel is 1 for greyscale images; 3 or 4 for colour images.
         - <img src="https://render.githubusercontent.com/render/math?math=\text{number of pixels} \times \text{bits per pixel} \times \text{number of values per pixel}/ 8">
     5. How many different pixels values an 8-bit image can have?
