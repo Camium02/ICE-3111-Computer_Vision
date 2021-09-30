@@ -138,11 +138,11 @@ I don't use it so much.
     4. What is the image size in number of bytes?
         - The total number of pixels is: <img src="https://render.githubusercontent.com/render/math?math=\text{width in pixels} \times \text{height in pixels}">
         - The number of values per pixel is 1 for greyscale images; 3 or 4 for colour images.
-        - <img src="https://render.githubusercontent.com/render/math?math=\text{number of pixels} \times \text{bits per pixel} \times \text{number of values per pixel}/ 8">
+        - The size in number of bytes is <img src="https://render.githubusercontent.com/render/math?math=\text{number of pixels} \times \text{bits per pixel} \times \text{number of values per pixel}/ 8">
     5. How many different pixels values an 8-bit image can have?
     6. How many different pixels values DX000000 can have (in theory)?
     7. What is the "size of a pixel in mm"? (divide the image size in mm by the image size in pixels)
-    8. What is the size in both mm and number of pixels of the diagonal of the image. Use Pythagoras' theorem: <img src="https://render.githubusercontent.com/render/math?math=\sqrt{\text{width}^2 %2B \text{height}^2}">
+    8. What is the size in both mm and number of pixels of the diagonal of the image. Use Pythagoras' theorem: <img src="https://render.githubusercontent.com/render/math?math=\text{diagonal} = \sqrt{\text{width}^2 %2B \text{height}^2}">
 
 ## Measure distances
 
