@@ -1,8 +1,8 @@
 ---
 title: Lab 1 -- Image Analysis Using ImageJ/Fiji.
 author: Dr Franck P. Vidal
-subtitle: ICE-3111 Computer Vision 202122
-date: Sept 22th, 2021
+subtitle: ICE-3111 Computer Vision
+date: Week 1
 keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Bangor University, School of Computer Science and Electronic Engineering
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
