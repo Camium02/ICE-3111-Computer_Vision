@@ -82,8 +82,9 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
     - Let's call the original image <img src="https://render.githubusercontent.com/render/math?math=f"> and the visualisation image <img src="https://render.githubusercontent.com/render/math?math=g">.
 
     ![](img/visualisation-eq.png)
-        
+
     with:
+    
         - <img src="https://render.githubusercontent.com/render/math?math=\min(g)=0">, for black
         - <img src="https://render.githubusercontent.com/render/math?math=\max(g)=255">, for white
         - <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715">
