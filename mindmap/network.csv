@@ -23,12 +23,19 @@ improve quality,geometrical transformation
 geometrical transformation,rotate
 geometrical transformation,translate
 geometrical transformation,scale
+resampling,geometrical transformation
+resampling,rotate
+resampling,translate
+resampling,scale
+sampling,resampling
 image filtering,linear filters
 image filtering,point operators
 image filtering,median filter
 linear filters,convolution
 point operators,image blending
 point operators,compositing and matting
+improve quality,contrast enhancement
+segmentation,thresholding
 point operators,contrast enhancement
 point operators,thresholding
 convolution,spacial domain
