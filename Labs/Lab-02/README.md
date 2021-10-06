@@ -83,12 +83,8 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
     ![](img/visualisation-eq.png)
 
-    with:
+    with: <img src="https://render.githubusercontent.com/render/math?math=\min(g)=0">, for black; <img src="https://render.githubusercontent.com/render/math?math=\max(g)=255">, for white; <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715">, and <img src="https://render.githubusercontent.com/render/math?math=T_{high}=10137">.
     
-        - <img src="https://render.githubusercontent.com/render/math?math=\min(g)=0">, for black
-        - <img src="https://render.githubusercontent.com/render/math?math=\max(g)=255">, for white
-        - <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715">
-        - <img src="https://render.githubusercontent.com/render/math?math=T_{high}=10137">
     - Any value below <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715"> will be black, and any value above <img src="https://render.githubusercontent.com/render/math?math=T_{high}=10137"> will be white.
 
 ## Area Measurements of an Object
