@@ -17,7 +17,9 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week's lab if it isn't](../Lab-01). We will initially use the same image as last week.
 
-## Area Measurements of an object
+## Improving the brightness and contrast of the visualisation.
+
+**NOTE: none of the actions that we perform in this section will change the pixel data. We are only tweaking the visualisation of the image.**
 
 1. Download [DX000000](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-01/DX000000).
 2. Open `DX000000` via `File → Open`.
@@ -62,6 +64,11 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
         - The image looks like this:
 
         ![Adjusted radiograph](img/DX000000-adjusted.png)
+4. How does it work?
+    - ImageJ holds two copies of the image. One is the original data, in its native format: It is the one used for calculations. The other one is in UINT8 for the visualisation: This is the one displayed on the screen.
+    - Let's call the original image $f$ and the visualisation image $g$.
+    - ![](https://render.githubusercontent.com/render/math?math=g(x,y) = new_{min} %2B (new_{max} - new_{min}) \times \frac{(f(x,y) - old_{min})}{(old_{max} - old_{min})})
+
 
 3. Open your lab report from last week. What was the width and height of the PMMA block?
     - in mm, and
