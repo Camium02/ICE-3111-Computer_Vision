@@ -17,7 +17,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week's lab if it isn't](../Lab-01). We will initially use the same image as last week.
 
-## Improving the brightness and contrast of the visualisation.
+## Improving the Brightness and Contrast of the Visualisation
 
 **NOTE: none of the actions that we perform in this section will change the pixel data. We are only tweaking the visualisation of the image.**
 
@@ -66,10 +66,22 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
         ![Adjusted radiograph](img/DX000000-adjusted.png)
 4. How does it work?
     - ImageJ holds two copies of the image. One is the original data, in its native format: It is the one used for calculations. The other one is in UINT8 for the visualisation: This is the one displayed on the screen.
-    - Let's call the original image $f$ and the visualisation image $g$.
-    - ![](https://render.githubusercontent.com/render/math?math=g(x,y) = new_{min} %2B (new_{max} - new_{min}) \times \frac{(f(x,y) - old_{min})}{(old_{max} - old_{min})})
+    - Let's call the original image <img src="https://render.githubusercontent.com/render/math?math=f"> and the visualisation image <img src="https://render.githubusercontent.com/render/math?math=g">.
+    - ![](img/visualisation-eq.png)
+    <!-- g(x,y)=
+\begin{cases}
+\min(g),& \text{if } \leq f(x,y) \leq T_{low}\\
+\max(g),& \text{if } \leq f(x,y) \geq T_{high}\\
+\min(g) + (\max(g) - \min(g)) \times \frac{f(x,y) - T_{low}}{T_{high} - T_{low}},              & \text{otherwise}
+\end{cases} -->
+    with:
+        - <img src="https://render.githubusercontent.com/render/math?math=\min(g)=0">, for black
+        - <img src="https://render.githubusercontent.com/render/math?math=\max(g)=255">, for white
+        - <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715">
+        - <img src="https://render.githubusercontent.com/render/math?math=T_{high}=10137">
+    - Any value below <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715"> will be black, and any value above <img src="https://render.githubusercontent.com/render/math?math=T_{high}=10137"> will be white.
 
-
+## Area Measurements of an Object
 3. Open your lab report from last week. What was the width and height of the PMMA block?
     - in mm, and
     - in pixels.
