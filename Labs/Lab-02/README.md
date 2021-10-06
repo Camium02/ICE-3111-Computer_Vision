@@ -84,7 +84,7 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
     ![](img/visualisation-eq.png)
 
     with: <img src="https://render.githubusercontent.com/render/math?math=\min(g)=0">, for black; <img src="https://render.githubusercontent.com/render/math?math=\max(g)=255">, for white; <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715">, and <img src="https://render.githubusercontent.com/render/math?math=T_{high}=10137">.
-    
+
     - Any value below <img src="https://render.githubusercontent.com/render/math?math=T_{low}=3715"> will be black, and any value above <img src="https://render.githubusercontent.com/render/math?math=T_{high}=10137"> will be white.
 
 ## Area Measurements of an Object
@@ -133,7 +133,8 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
 1. Download the file [perfect_CT.tif](perfect_CT.tif).
 2. Open the file.
-3. As you may see the data type is FLOAT32. The image is a simulated microtomography slice of a tungsten fibre. I use it in my research. There is no limit to what the pixel values can be, which is why floating point numbers are necessary. The smallest pixel value is negative, and the largest is 341.61.
+3. As you may see the data type is FLOAT32. The image is a simulated microtomography slice of a tungsten fibre. I use it in my research. There is no limit to what the pixel values can be, which is why floating point numbers are necessary. The smallest pixel value is negative, and the largest is 341.61. The pixel values correspond to "linear attenuation coefficients". These are quantities that characterises how easily X-ray can penetrate a material. 0.0 is easy (vacuum), 341.61 is hard (tungsten).
+
 4. Adjust the brightness and contrast so that the image looks nice. Add a screenshot in your lab report.
     - The bright circles correspond to tungsten (W) cores.
     - The dark circles correspond to silicon carbide (SiC).
