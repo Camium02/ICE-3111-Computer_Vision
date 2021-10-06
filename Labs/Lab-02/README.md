@@ -80,16 +80,9 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 4. How does it work?
     - ImageJ holds two copies of the image. One is the original data, in its native format: It is the one used for calculations. The other one is in UINT8 for the visualisation: This is the one displayed on the screen.
     - Let's call the original image <img src="https://render.githubusercontent.com/render/math?math=f"> and the visualisation image <img src="https://render.githubusercontent.com/render/math?math=g">.
-    
+
     ![](img/visualisation-eq.png)
-    
-    <!-- g(x,y)=
-\begin{cases}
-\min(g),& \text{if } \leq f(x,y) \leq T_{low}\\
-\max(g),& \text{if } \leq f(x,y) \geq T_{high}\\
-\min(g) + (\max(g) - \min(g)) \times \frac{f(x,y) - T_{low}}{T_{high} - T_{low}},              & \text{otherwise}
-\end{cases} -->
-    
+        
     with:
         - <img src="https://render.githubusercontent.com/render/math?math=\min(g)=0">, for black
         - <img src="https://render.githubusercontent.com/render/math?math=\max(g)=255">, for white
