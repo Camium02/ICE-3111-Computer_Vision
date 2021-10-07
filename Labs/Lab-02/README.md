@@ -51,9 +51,9 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
     - Why 16383?
         - 16 bits are used to store a pixel value.
-        - $2^16 = 65536$
+        -  <img src="https://render.githubusercontent.com/render/math?math=2^16 = 65536">
         - However, only 14 bits are needed for X-ray radiographs.
-        - $2^14 = 16384$
+        -  <img src="https://render.githubusercontent.com/render/math?math=2^14 = 16384">
         - The largest value using 14 bits is 16383.
     - In the histograms you computed last week, we visualised the distribution of pixel values in a graph:
 
@@ -84,7 +84,8 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
         ![Adjusted radiograph](img/DX000000-adjusted.png)
 
         - Once you're happy with the brightness/contrast,
-          - shut the window. **DO NOT CLICK ON `Apply` AS IT WILL CHANGE THE PIXEL VALUES.**
+          - In your lab report, write down the numerical values that are below the histogram in the dialogue box ("B&C").
+          - Shut the window. **DO NOT CLICK ON `Apply` AS IT WILL CHANGE THE PIXEL VALUES.**
           - Save a screenshot in your lab report.
 4. How does it work?
     - ImageJ holds two copies of the image. One is the original data, in its native format: It is the one used for calculations. The other one is in UINT8 for the visualisation: This is the one displayed on the screen.
@@ -129,11 +130,12 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
     - Add a screenshot of the image in your lab report.
 6. Below the histogram in the threshold dialog box, you see a percentage. This is the percentage of pixels of the image that is in red.
     - What is it?
-7. Estimate the size of the PMMA block in mm<sup>2</sup> using this percentage.
+7. Estimate the area of the PMMA block in mm<sup>2</sup> using this percentage.
     - Tip: <img src="https://render.githubusercontent.com/render/math?math=\text{area} = \frac{\text{percentage}}{100} \times \text{image width} \times \text{image height}">
 8. How does it compare with your previous estimation?
     - Tip: <img src="https://render.githubusercontent.com/render/math?math=\text{error in %25} = 100 \times \frac{\text{new estimation} - \text{previous estimation}}{\text{previous estimation}}">
     - If the error is greater than 0, then the area is overestimated. If it is lower, it is underestimated.
+    - Looking at the segmented image, explain in your own words why the value you computed is greater than 0.
 
 **NOTE:** For a rectangle, we can easily compute the area with <img src="https://render.githubusercontent.com/render/math?math=\text{width} \times \text{height}">, and this is what we did. However, for complex shapes, this method is not possible and we must use the alternative method we just tried (even if it may not be as accurate, this is a trade-off).
 
