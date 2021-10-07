@@ -99,7 +99,7 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
 ## Area Measurements of an Object
 
-1. Open your lab report from last week. What was the width and height of the PMMA block?
+1. Open your lab report from last week. What was the width and height of the PMMA block (not the whole image, just the rectangular structure)?
     - in mm, and
     - in pixels.
 2. What is the area of the entire PMMA block in mm<sup>2</sup>?
