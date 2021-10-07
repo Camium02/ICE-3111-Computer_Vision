@@ -105,10 +105,10 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 2. What is the area of the entire PMMA block in mm<sup>2</sup>?
     - Tip: Assume the object is a rectangle. <img src="https://render.githubusercontent.com/render/math?math=\text{Area} = \text{width} \times \text{height}">
 3. Look at your histograms from last week's report.
-    - What was the max pixel value of the background?
-    - What was the min pixel value of the PMMA block?
+    - What was the max pixel value of the background? Let's call it <img src="https://render.githubusercontent.com/render/math?math=A">
+    - What was the min pixel value of the PMMA block? Let's call it <img src="https://render.githubusercontent.com/render/math?math=B">
     - What is the pixel value in the middle?
-        - Tip: <img src="https://render.githubusercontent.com/render/math?math=T = min %2B (max - min) / 2">
+        - Tip: <img src="https://render.githubusercontent.com/render/math?math=T = \min(A, B) %2B (\max(A, B) - \min(A, B)) / 2">
         - Write down this number, we'll use it as a "threshold" that will separate the PMMA block from its background.
 4. Go to the menu `Image->Adjust->Threshold`.
     - A dialogue box ("Threshold") will appear.
@@ -164,9 +164,9 @@ If we investigate a bit. What is the min and max pixel values? The pixel data in
     - measure the width and height in um of the rectangular structure.
     - (FYI: Iwan and I conducted a user-study where we asked experts to perform similar measurements. We compared manual measurements with those provided by our computer vision algorithm)
 7. What is the percentage of the pixels of the image that corresponds to
-    - tungsten
-    - silicon carbide, and
-    - titanium/aluminium/vanadium alloy.
+    - tungsten (bright circles)
+    - silicon carbide (dark circles), and
+    - titanium/aluminium/vanadium alloy (rectangular structure).
     - Tip: Use the Threshold dialog box, fiddle with the sliders, note the percentage and compute the area in um<sup>2</sup> as we did before.
 
 ## Don't forget
