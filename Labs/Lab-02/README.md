@@ -44,7 +44,7 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
 ![Input image](img/DX000000.png)
 
-3. I don't know you, but I find the image a bit dull.  
+3. I don't know how about you, but I find the image a bit dull.  
     - The dynamic range of the image is [0 - 16383], with 0 the smallest pixel value in the image; and 16383 the largest one.
 
     ![Dynamic range](img/dynamic-range.png)
@@ -83,7 +83,9 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
         ![Adjusted radiograph](img/DX000000-adjusted.png)
 
-        - Once you're happy with the brightness/contrast, shut the window. **DO NOT CLICK ON `Apply` AS IT WILL CHANGE THE PIXEL VALUES.**
+        - Once you're happy with the brightness/contrast,
+          - shut the window. **DO NOT CLICK ON `Apply` AS IT WILL CHANGE THE PIXEL VALUES.**
+          - Save a screenshot in your lab report.
 4. How does it work?
     - ImageJ holds two copies of the image. One is the original data, in its native format: It is the one used for calculations. The other one is in UINT8 for the visualisation: This is the one displayed on the screen.
     - Let's call the original image <img src="https://render.githubusercontent.com/render/math?math=f"> and the visualisation image <img src="https://render.githubusercontent.com/render/math?math=g">.
