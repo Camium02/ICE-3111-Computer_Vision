@@ -230,6 +230,11 @@ Can you see how they relate? You can move the mouse over the plots to see more i
 
 Note in your report the corresponding pixel intensity. We'll need it next week!
 
+
+### Don't forget
+
+To complete the lab report and to submit it.
+
 ### Next week
 
 We will exploit this value to perform our first image processing task: Segment the image to select the PMMA block only.

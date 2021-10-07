@@ -1,5 +1,5 @@
 ---
-title: Lab 2 -- Image Analysis Using ImageJ/Fiji.
+title: Lab 2 -- Further Image Analysis Using ImageJ/Fiji.
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision
 date: Week 2
@@ -7,7 +7,7 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Lab 2 -- Image Analysis Using ImageJ/Fiji
+# Lab 2 -- Further Image Analysis Using ImageJ/Fiji
 
 - (worth 5% of Assignment 1)
 - Deadline: 13/10/2021 at 23:59
@@ -15,14 +15,21 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 ## Introduction
 
+Look at the ellipses in the mindmap. It illustrates which concepts we are discussing this week.
+
 ![Week 2 mindmap](../../mindmap/Week-02/screenshot.png)
 
-This week you heard of sampling and quantisation in the lecture. We saw that the data type used to store pixel values is important in order to retain information. This is true with the two images will use today. One is in UINT16, one in FLOAT32.
+This week we studied sampling and quantisation in the lecture. We saw that the data type used to store pixel values is important in order to retain information (remember when I converted my MP3 into WAV with a low bitrate?!). This is also true with the two images will use today. One is in UINT16 (`unsigned short` in C), one in FLOAT32 (`float` in C). One of the problem with such images, it's that they tend to have a large dynamic range, much wider than what the screen can display.
 
 Today we will:
 
-- Adjust the brightness and contrast of images so that they look nice to use, but without changing the actual pixel values.
-- Segment (in other word select regions of interest) parts of the image to measure their areas.
+1. Adjust the brightness and contrast of images so that they look nice to the user but without changing the actual pixel values:
+  - We don't want to damage the data,
+  - We just want to make it look nice on the screen.
+2. Segment (in other word select regions of interest) parts of the image using a method called "thresholding".
+3. We use the amount of segmented data relative to the whole image to measure their areas. This technique is useful for complex shapes.
+4. We'll do some more measurements, but on another image. The two images that we use are images that I actually used in my research, in other words, they are real images that I must analyse too.
+
 
 ## Preliminaries
 
@@ -133,24 +140,35 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
 1. Download the file [perfect_CT.tif](perfect_CT.tif).
 2. Open the file.
-3. As you may see the data type is FLOAT32. The image is a simulated microtomography slice of a tungsten fibre. I use it in my research. There is no limit to what the pixel values can be, which is why floating point numbers are necessary. The smallest pixel value is negative, and the largest is 341.61. The pixel values correspond to "linear attenuation coefficients". These are quantities that characterises how easily X-ray can penetrate a material. 0.0 is easy (vacuum), 341.61 is hard (tungsten).
+3. When we open it, it looks awful: It has a very poor contrast.
+![](img/perfect_CT-poor-contrast.png)
+If we investigate a bit. What is the min and max pixel values? The pixel data in a TIFF file is not always in UINT8 (`unsigned char` in C). For this image, you see the data type is FLOAT32. The image is a simulated microtomography slice of a tungsten fibre. Iwan and I use it in our research. There is no limit to what the pixel values can be, which is why floating point numbers are necessary. The smallest pixel value is negative, and the largest is more than 340. The pixel values correspond to "linear attenuation coefficients". These are quantities that characterise how easily X-ray can penetrate a material. 0.0 is easy (vacuum), ~340 is hard (tungsten).
 
 4. Adjust the brightness and contrast so that the image looks nice. Add a screenshot in your lab report.
-    - The bright circles correspond to tungsten (W) cores.
-    - The dark circles correspond to silicon carbide (SiC).
-    - The rectangular structure (called matrix) is an titanium/aluminium/vanadium alloy (Ti90Al6V4).
-5. Adjust the size of pixel.
+    - The bright circles correspond to tungsten (W) cores. Tungsten is very dense, which is why the pixels are bright.
+    - The dark circles correspond to silicon carbide (SiC). Silicon carbide is very light, which is why the pixels are dark.
+    - The rectangular structure (called matrix) is an titanium/aluminium/vanadium alloy (Ti90Al6V4). Ti90Al6V4 is nor heavy, nor light, which is why the pixels are grey.
+5. In the TIFF file, the pixel size was not recorded properly. However, we know its value. Adjust the size of pixel.
     - Go to the menu: `Image -> Properties`
     - Change both the pixel width and height to `1.9`
     - Change the units to `um`.
 
     ![Properties dialog box](img/properties.png)
-6. With the line selection tool ![Properties dialog box](img/line.png),
+6. Similarly to what we did last week, use the line selection tool to ![Properties dialog box](img/line.png)
     - measure the diameter in um of one of the bright circles,
     - measure the diameter in um of one of the dark circles,
     - measure the width and height in um of the rectangular structure.
+    - (FYI: Iwan and I conducted a user-study where we asked experts to perform similar measurements. We compared manual measurements with those provided by our computer vision algorithm)
 7. What is the percentage of the pixels of the image that corresponds to
     - tungsten
     - silicon carbide, and
     - titanium/aluminium/vanadium alloy.
     - Tip: Use the Threshold dialog box, fiddle with the sliders, note the percentage and compute the area in um<sup>2</sup> as we did before.
+
+## Don't forget
+
+To complete the lab report and to submit it.
+
+## Next week
+
+We will start some proper image processing, both in ImageJ and OpenCV.
