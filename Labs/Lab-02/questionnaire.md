@@ -51,4 +51,4 @@ Deadline: 13/10/2021 at 23:59
 - What is the percentage of the pixels of the image that corresponds to
     - tungsten: \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
     - silicon carbide: \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
-    - titanium/aluminium/vanadium alloy: \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
+    - titanium/aluminum/vanadium alloy: \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]

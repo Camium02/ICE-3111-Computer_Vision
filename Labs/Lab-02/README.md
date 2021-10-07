@@ -11,7 +11,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 - (worth 5% of Assignment 1)
 - Deadline: 13/10/2021 at 23:59
-- Write your answers in the template provided: [questionnaire.docx](questionnaire.docx)
+- Write your answers in the template provided: [questionnaire.docx](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/questionnaire.docx)
 
 ## Introduction
 
@@ -142,7 +142,7 @@ We'll use ImageJ/Fiji this week again. Make sure it is installed. [See last week
 
 ## Simulated microtomography of a tungsten fibre
 
-1. Download the file [perfect_CT.tif](perfect_CT.tif).
+1. Download the file [perfect_CT.tif](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/perfect_CT.tif).
 2. Open the file.
 3. When we open it, it looks awful: It has a very poor contrast.
 ![](img/perfect_CT-poor-contrast.png)
@@ -151,7 +151,7 @@ If we investigate a bit. What is the min and max pixel values? The pixel data in
 4. Adjust the brightness and contrast so that the image looks nice. Add a screenshot in your lab report.
     - The bright circles correspond to tungsten (W) cores. Tungsten is very dense, which is why the pixels are bright.
     - The dark circles correspond to silicon carbide (SiC). Silicon carbide is very light, which is why the pixels are dark.
-    - The rectangular structure (called matrix) is an titanium/aluminium/vanadium alloy (Ti90Al6V4). Ti90Al6V4 is nor heavy, nor light, which is why the pixels are grey.
+    - The rectangular structure (called matrix) is an titanium/aluminum/vanadium alloy (Ti90Al6V4). Ti90Al6V4 is nor heavy, nor light, which is why the pixels are grey.
 5. In the TIFF file, the pixel size was not recorded properly. However, we know its value. Adjust the size of pixel.
     - Go to the menu: `Image -> Properties`
     - Change both the pixel width and height to `1.9`
