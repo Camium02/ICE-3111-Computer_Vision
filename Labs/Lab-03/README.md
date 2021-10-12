@@ -26,15 +26,15 @@ For example, we saw how to improve the contrast of an image that is dull using a
 Today we will:
 
 1. Install OpenCV if needed:
-  - Either use C/C++, or,
-  - Python.
+    - Either use C/C++, or,
+    - Python.
 2. Load an image.
 3. Display an image.
 4. Convert a RGB image in a greyscale image.
 5. Find the smallest and largest pixel values in an image.
 6. Improve the contrast of an image:
-  - by hand using the equation seen in the lecture,
-  - using OpenCV's function.
+    - by hand using the equation seen in the lecture,
+    - using OpenCV's function.
 7. Change the dynamic range using a log transform.
 8. Blend two images in a for loop to create an animation.
 
