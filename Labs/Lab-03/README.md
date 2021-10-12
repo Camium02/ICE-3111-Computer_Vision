@@ -49,7 +49,7 @@ For the lab machines, it should be done, at least for the C and C++ language.
 
 Before we start, the technical documentation is available at: [https://docs.opencv.org/4.5.4/index.html](https://docs.opencv.org/4.5.4/index.html). The OpenCV's functions we will use are:
 
-```cpp
+```cxx
 imread() // To read an image from a file
 imshow() // To display an image in a window
 ```
