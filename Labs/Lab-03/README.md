@@ -1,5 +1,5 @@
 ---
-title: Lab 3 -- Introduction to OpenCV and Point Operators.
+title: Lab 3 -- Introduction to OpenCV in C/C++ and Python, and Point Operators.
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision
 date: Week 3
@@ -7,7 +7,7 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Lab 3 -- Further Image Analysis Using ImageJ/Fiji
+# Lab 3 -- Introduction to OpenCV in C/C++ and Python, and Point Operators
 
 
 - (worth 30% of Assignment 1)
@@ -45,6 +45,9 @@ Ask yourself if you prefer to write code using C, C++ or Python.
 Have you installed OpenCV for your favourite language? If not, refer to [Lab 0](../Lab-00).
 For the lab machines, it should be done, at least for the C and C++ language.
 
+- [Click here for instructions in C/C++](C-CXX.md)
+- [Click here for instructions in Python](Python.md)
+
 ## 2. and 3. Load and display an image
 
 Before we start, the technical documentation is available at: [https://docs.opencv.org/4.5.4/index.html](https://docs.opencv.org/4.5.4/index.html). The OpenCV's functions we will use are:
@@ -57,19 +60,17 @@ Both functions are available in C, C++ and Python. Find them in the online docum
 
 ### C/C++
 ```cpp
-Mat cv::imread 	( 	const String &  	filename,
-		int  	flags = IMREAD_COLOR )
+Mat cv::imread (const String&	filename, int	flags = IMREAD_COLOR );
 
-void cv::imshow 	( 	const String &  	winname,
-		InputArray  	mat ) 		
+void cv::imshow (	const String&	winname, InputArray	mat );
 ```
 
 ### Python
 
 ```Python
-cv.imread(	filename[, flags]	) -> 	retval
+cv.imread( filename[, flags] ) -> 	retval
 
-cv.imshow(	winname, mat	) -> 	None
+cv.imshow( winname, mat ) -> 	None
 ```
 
 ### Our first OpenCV program
