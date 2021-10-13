@@ -188,19 +188,6 @@ int main(int argc, char** argv)
 {
     try
     {
-        // Check the command line
-        if (argc != 2)
-        {
-            // Create an error message
-            std::string error_message;
-            error_message  = "usage: ";
-            error_message += argv[0];
-            error_message += " <input_image>";
-
-            // Throw an error
-            throw error_message;
-        }
-
         // Write your own code here
         //....
         //....
@@ -353,6 +340,7 @@ In your lab report, you must include a listing of your program and put three scr
 1. Copy paste your previous program in a new one that you call `rgb2grey.cxx`. Don't forget to edit `CMakeLists.txt` and add:
 
 ```cmake
+ADD_EXECUTABLE (rgb2grey   rgb2grey.cxx)
 TARGET_INCLUDE_DIRECTORIES(rgb2grey PUBLIC ${OpenCV_INCLUDE_DIRS})
 TARGET_LINK_LIBRARIES (rgb2grey   ${OpenCV_LIBS})
 ```
@@ -457,8 +445,7 @@ void cv::minMaxLoc 	( 	InputArray  	src,
 	) 		
 ```
 We can use  it as follows:
-`cv::minMaxLoc(your_mat, &minVal, &maxVal)`, where `your_mat` is a `cv::Mat` (`grey_image` in our program), `minVal` and `maxVal` are two double-precision floating point numbers.
-- To output the values in the console, include the header file `<iostream>` at the top of your file. Note that there is no `.h` in `<iostream>`.
+`cv::minMaxLoc(your_mat, &minVal, &maxVal)`, where `your_mat` is a `cv::Mat` (`grey_image` in our program), `minVal` and `maxVal` are two double-precision floating point numbers (don't forget to declare the variables).
 - After you called `minMaxLoc` with the appropriate parameters, output the value with something like:
 ```cpp
 cout << "min value:\t" << minVal << endl;
@@ -471,20 +458,6 @@ cout << "max value:\t" << maxVal << endl;
 - Are the values identical?
 
 ## 6. Improve the contrast of an image
-
-- Choose an image of your choice.
-- If it looks nice (i.e. has a good contrast/brightness in our case), we will make it dull.
-- Open the image in ImageJ.
-- Go to the menu `Image->Type` and choose `8-bits` to convert it to greyscale.
-  - In the lab report, add the histogram of this image.
-- In the menu `Process->Math`, choose `Divide`. Use `3` or `4`.
-    - In the lab report, add the histogram of this new image.
-    - See the histogram? You just altered the contrast. Ooops.
-- In the menu `Process->Math`, choose `Add`. Use `25` or something along these lines.
-    - In the lab report, add the histogram of this new image.
-    - See the histogram? You just altered the brightness. Ooops.
-- Save the image as a `TIFF` file.
-- In the lab report, add a screenshot of this new image.
 
 ### by hand using the equation seen in the lecture
 
@@ -551,7 +524,8 @@ In our context, `alpha` is 255, and `norm_type` is `NORM_MINMAX`.
 
 - To create the new program, copy paste `contrastStretchingManual.cxx` into `contrastStretchingCV.cxx`. Do not forget to edit `CMakeLists.txt` as you did previously.
 
-- Remove the code that you added for the histogram stretching.
+- Remove the code that you added for the histogram stretching. It includes the call to `cv::minMaxLoc` as it will done internally by `cv::normalize`. Remove all the variables that you no longer need.
+
 - All we need to do is:
 
 ```cpp

@@ -315,7 +315,8 @@ In our context, `alpha` is 255, and `norm_type` is `cv2.NORM_MINMAX`.
 
 - To create the new program, copy paste `contrastStretchingManual.py` into `contrastStretchingCV.py`.
 
-- Remove the code that you added for the histogram stretching.
+- Remove the code that you added for the histogram stretching. It includes the call to `cv::minMaxLoc` as it will done internally by `cv::normalize`. Remove all the variables that you no longer need.
+
 - All we need to do is:
 
 ```cpp
