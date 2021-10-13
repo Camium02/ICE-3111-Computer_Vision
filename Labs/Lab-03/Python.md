@@ -12,12 +12,12 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 ## Contents
 
 [2. Load an image](#2-and-3-load-and-display-an-image)
-3. [Display an image](#)
+3. [Display an image](#2-and-3-load-and-display-an-image)
 4. [Convert a RGB image in a greyscale image](#4-convert-a-rgb-image-in-a-greyscale-image)
 5. [Find the smallest and largest pixel values in an image](#5-find-the-smallest-and-largest-pixel-values-in-an-image)
 6. [Improve the contrast of an image:](#6-improve-the-contrast-of-an-image)
-    1. [by hand using the equation seen in the lecture](#)
-    2. [using OpenCV's function](#)
+    1. [by hand using the equation seen in the lecture](#by-hand-using-the-equation-seen-in-the-lecture)
+    2. [using OpenCV's function](#using-opencvs-function)
 7. [Change the dynamic range using a log transform](#7-change-the-dynamic-range-using-a-log-transform)
 8. [Blend two images in a for loop to create an animation](#8-blend-two-images-in-a-for-loop-to-create-an-animation)
 
@@ -220,10 +220,12 @@ if not cv2.imwrite(output_filename, grey_image):
 
 When you detect an error, it is good practive to throw an error. Again, I will assume from now on that you know how to do it.
 
+The program is now complete. You run it with different image files to test it. In your lab report, you must include a listing of your program and put three screenshots (with three different images).
+
 
 ## 5. Find the smallest and largest pixel values in an image.
 
-## 6. Improve the contrast of an image:
+## 6. Improve the contrast of an image
 
 ### by hand using the equation seen in the lecture
 
@@ -232,3 +234,12 @@ When you detect an error, it is good practive to throw an error. Again, I will a
 ## 7. Change the dynamic range using a log transform.
 
 ## 8. Blend two images in a for loop to create an animation.
+
+
+## Don't forget
+
+To complete the lab report and to submit it.
+
+## Next week
+
+We will use spatial filters to blur an image, find edges, etc.
