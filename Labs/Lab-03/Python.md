@@ -64,6 +64,7 @@ It must describe the program:
 ```python
 import sys # to read the command line arguments
 import cv2 # cv2 library
+import numpy as np # numpy library
 ```
 
 6. Create the `NoneType`. It is useful when checking errors.
@@ -256,7 +257,7 @@ print("max value:",  maxVal)
 ```
 - To test your program, run your program with your new test image.
 - In your lab report, add a screenshot of the console with the output.
-- Open [perfect_CT.tif](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/perfect_CT.tif) with ImageJ. Go to the menu `Analyze -> Measure`.
+- Open test image with ImageJ. Go to the menu `Analyze -> Measure`.
 - In your lab report, add a screenshot of the table from ImageJ that displays the min and max values.
 - Are the values identical?
 
@@ -271,7 +272,7 @@ You need to be familiar with the histogram stretching method we saw in the lectu
 
 In our case,
 
-- `g` is a new `cv::Mat` to store the new image,
+- `g` is a new `numpy.array` to store the new image,
 - `f` is `grey_image`,
 - *min(g) = 0*
 - *max(g) = 255*
@@ -285,11 +286,11 @@ float_image = grey_image.astype(np.single)
 ```
 - Now we can apply the equation:
     - Subtraction: `float_image -= minVal`
-    - Division: `float_image /= max_val - minVal`
+    - Division: `float_image /= maxVal - minVal`
     - Product: `float_image *= 255`
 - Display `float_image` using `imshow`.
 - Add a screenshot in your report.
-- Why was the image white?
+- Why was the image (mostly) white?
     - Hint, look at [http://scikit-image.org/docs/dev/user_guide/data_types.html](http://scikit-image.org/docs/dev/user_guide/data_types.html) and find the corresponding data type.
     - For an image in floating-point numbers, by convention what is the value of white?
 - We must convert the image from floating-point numbers to unsigned bytes (UINT8).
@@ -318,7 +319,8 @@ In our context, `alpha` is 255, and `norm_type` is `cv2.NORM_MINMAX`.
 - All we need to do is:
 
 ```cpp
-float_image = normalize(grey_image, alpha=255, beta=0, norm_type=cv2.NORM_MINMAX)
+float_image = np.zeros(grey_image.shape)
+float_image = cv2.normalize(grey_image, dst=float_image, alpha=255, beta=0, norm_type=cv2.NORM_MINMAX)
 uint8_image = float_image.astype(np.uint8)
 ```
 

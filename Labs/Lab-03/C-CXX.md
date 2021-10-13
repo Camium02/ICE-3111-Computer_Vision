@@ -466,7 +466,7 @@ cout << "max value:\t" << maxVal << endl;
 ```
 - To test your program, run your program with your new test image.
 - In your lab report, add a screenshot of the console with the output.
-- Open [perfect_CT.tif](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/perfect_CT.tif) with ImageJ. Go to the menu `Analyze -> Measure`.
+- Open test image with ImageJ. Go to the menu `Analyze -> Measure`.
 - In your lab report, add a screenshot of the table from ImageJ that displays the min and max values.
 - Are the values identical?
 
@@ -515,11 +515,11 @@ void cv::Mat::convertTo 	( 	OutputArray  	m,
 - where `32F` means single precision floating-point number, and `C1` means greyscale (one colour channel).
 - Now we can apply the equation:
     - Subtraction: `float_image -= minVal;`
-    - Division: `float_image /= max_val - minVal;`
+    - Division: `float_image /= maxVal - minVal;`
     - Product: `float_image *= 255;`
 - Display `float_image` using `imshow`.
 - Add a screenshot in your report.
-- Why was the image white?
+- Why was the image (mostly) white?
     - Hint, look at [http://scikit-image.org/docs/dev/user_guide/data_types.html](http://scikit-image.org/docs/dev/user_guide/data_types.html) and find the corresponding data type.
     - For an image in floating-point numbers, by convention what is the value of white?
 - We must convert the image from floating-point numbers to unsigned bytes (UINT8).
