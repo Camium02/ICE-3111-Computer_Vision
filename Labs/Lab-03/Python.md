@@ -9,6 +9,17 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 # Instructions in Python
 
+## Contents
+
+[2. Load an image](#2-and-3-load-and-display-an-image)
+3. [Display an image](#)
+4. [Convert a RGB image in a greyscale image](#4-convert-a-rgb-image-in-a-greyscale-image)
+5. [Find the smallest and largest pixel values in an image](#5-find-the-smallest-and-largest-pixel-values-in-an-image)
+6. [Improve the contrast of an image:](#6-improve-the-contrast-of-an-image)
+    1. [by hand using the equation seen in the lecture](#)
+    2. [using OpenCV's function](#)
+7. [Change the dynamic range using a log transform](#7-change-the-dynamic-range-using-a-log-transform)
+8. [Blend two images in a for loop to create an animation](#8-blend-two-images-in-a-for-loop-to-create-an-animation)
 
 ## 2. and 3. Load and display an image
 
@@ -213,8 +224,10 @@ When you detect an error, it is good practive to throw an error. Again, I will a
 ## 5. Find the smallest and largest pixel values in an image.
 
 ## 6. Improve the contrast of an image:
-  - by hand using the equation seen in the lecture,
-  - using OpenCV's function.
+
+### by hand using the equation seen in the lecture
+
+### using OpenCV's function
 
 ## 7. Change the dynamic range using a log transform.
 
