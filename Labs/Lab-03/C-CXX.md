@@ -18,8 +18,8 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 6. [Improve the contrast of an image:](#6-improve-the-contrast-of-an-image)
     1. [by hand using the equation seen in the lecture](#by-hand-using-the-equation-seen-in-the-lecture)
     2. [using OpenCV's function](#using-opencvs-function)
-7. [Change the dynamic range using a log transform](#7-change-the-dynamic-range-using-a-log-transform)
-8. [Blend two images in a for loop to create an animation](#8-blend-two-images-in-a-for-loop-to-create-an-animation)
+<!-- 7. [Change the dynamic range using a log transform](#7-change-the-dynamic-range-using-a-log-transform)
+8. [Blend two images in a for loop to create an animation](#8-blend-two-images-in-a-for-loop-to-create-an-animation) -->
 
 ## 2. and 3. Load and display an image
 
@@ -425,18 +425,134 @@ When you detect an error, it is good practive to throw an error. Again, I will a
 
 The program is now complete. You run it with different image files to test it. In your lab report, you must include a listing of your program and put three screenshots (with three different images).
 
-
 ## 5. Find the smallest and largest pixel values in an image.
+
+- To create the new program, copy paste `rgb2grey.cxx` into `contrastStretchingManual.cxx`. Do not forget to edit `CMakeLists.txt` as you did previously.
+- To retrieve the smallest and largest pixel values in `grey_image`, we will use
+```cpp
+void cv::minMaxLoc 	( 	InputArray  	src,
+		double *  	minVal,
+		double *  	maxVal = 0,
+		Point *  	minLoc = 0,
+		Point *  	maxLoc = 0,
+		InputArray  	mask = noArray()
+	) 		
+```
+We can use  it as follows:
+`cv::minMaxLoc(your_mat, &minVal, &maxVal)`, where `your_mat` is a `cv::Mat` (`grey_image` in our program), `minVal` and `maxVal` are two double-precision floating point numbers.
+- To output the values in the console, include the header file `<iostream>` at the top of your file. Note that there is no `.h` in `<iostream>`.
+- After you called `minMaxLoc` with the appropriate parameters, output the value with something like:
+```cpp
+cout << "min value:\t" << minVal << endl;
+cout << "max value:\t" << maxVal << endl;
+```
+- To test your program, run your program with [perfect_CT.tif](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/perfect_CT.tif) from last week.
+- In your lab report, add a screenshot of the console with the output.
+- Open [perfect_CT.tif](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/perfect_CT.tif) with ImageJ. Go to the menu `Analyze -> Measure`.
+- In your lab report, add a screenshot of the table from ImageJ that displays the min and max values.
+- Are the values identical?
 
 ## 6. Improve the contrast of an image
 
+- Choose an image of your choice.
+- If it looks nice (i.e. has a good contrast/brightness in our case), we will make it dull.
+- Open the image in ImageJ.
+- Go to the menu `Image->Type` and choose `8-bits` to convert it to greyscale.
+  - In the lab report, add the histogram of this image.
+- In the menu `Process->Math`, choose `Divide`. Use `3` or `4`.
+    - In the lab report, add the histogram of this new image.
+    - See the histogram? You just altered the contrast. Ooops.
+- In the menu `Process->Math`, choose `Add`. Use `25` or something along these lines.
+    - In the lab report, add the histogram of this new image.
+    - See the histogram? You just altered the brightness. Ooops.
+- Save the image as a `TIFF` file.
+- In the lab report, add a screenshot of this new image.
+
 ### by hand using the equation seen in the lecture
+
+You need to be familiar with the histogram stretching method we saw in the lecture. It's equation is
+
+![Contrast stretching equation](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/img/visualisation-eq.png)
+
+In our case,
+
+- `g` is a new `cv::Mat` to store the new image,
+- `f` is `grey_image`,
+- *min(g) = 0*
+- *max(g) = 255*
+- *Tlow = minVal*
+- *Thigh = maxVal*
+
+- Remember `1 / 2 = 0`, and `1.0 / 2.0 = 0.5`. Due to the division, we *MUST* make sure floating-point divisions are used instead of integer division.
+- For this purpose we use:
+```cpp
+void cv::Mat::convertTo 	( 	OutputArray  	m,
+		int  	rtype,
+		double  	alpha = 1,
+		double  	beta = 0
+	) 		const
+```
+- First, create a new image, e.g. `cv::Mat float_image;` and use
+- `grey_image.convertTo(float_image, CV_32FC1);`.
+- where `32F` means single precision floating-point number, and `C1` means greyscale (one colour channel).
+- Now we can apply the equation:
+    - Subtraction: `float_image -= minVal;`
+    - Division: `float_image /= max_val - minVal;`
+    - Product: `float_image *= 255;`
+- Display `float_image` using `imshow`.
+- Add a screenshot in your report.
+- Why was the image white?
+    - Hint, look at [http://scikit-image.org/docs/dev/user_guide/data_types.html](http://scikit-image.org/docs/dev/user_guide/data_types.html) and find the corresponding data type.
+    - For an image in floating-point numbers, by convention what is the value of white?
+- We must convert the image from floating-point numbers to unsigned bytes (UINT8).
+- Create a new image that you call `uint8_image`.
+- Call `float_image.convertTo(uint8_image, CV_8UC1);`.
+- Display `uint8_image` using `imshow`.
+- Add a screenshot in your report.
+- Alter the call to `imwrite` to save `uint8_image` into a file.
+
+The program is now complete. You run it with your test image.
+In your lab report, you must include a listing of your program.
 
 ### using OpenCV's function
 
-## 7. Change the dynamic range using a log transform.
+- There is a function in OpenCV to perform the histogram stretching operation. It's called "min-max normalisation":
 
-## 8. Blend two images in a for loop to create an animation.
+```cpp
+void cv::normalize 	( 	InputArray  	src,
+		InputOutputArray  	dst,
+		double  	alpha = 1,
+		double  	beta = 0,
+		int  	norm_type = NORM_L2,
+		int  	dtype = -1,
+		InputArray  	mask = noArray()
+	) 	
+```
+
+In our context, `alpha` is 255, and `norm_type` is `NORM_MINMAX`.
+
+- To create the new program, copy paste `contrastStretchingManual.cxx` into `contrastStretchingCV.cxx`. Do not forget to edit `CMakeLists.txt` as you did previously.
+
+- Remove the code that you added for the histogram stretching.
+- All we need to do is:
+
+```cpp
+Mat float_image;
+Mat uint8_image;
+normalize(grey_image, float_image, 255, 0, NORM_MINMAX);
+float_image.convertTo(uint8_image, CV_8UC1);
+```
+
+The program is now complete. You run it with your test image.
+In your lab report, you must include:
+
+- a listing of your program,
+- a screenshot of the new image after histogram stretching, and
+- a screenshot of its histogram in ImageJ.
+
+<!-- ## 7. Change the dynamic range using a log transform.
+
+## 8. Blend two images in a for loop to create an animation. -->
 
 
 ## Don't forget
