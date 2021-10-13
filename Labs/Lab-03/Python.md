@@ -11,7 +11,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 ## Contents
 
-[2. Load an image](#2-and-3-load-and-display-an-image)
+2. [Load an image](#2-and-3-load-and-display-an-image)
 3. [Display an image](#2-and-3-load-and-display-an-image)
 4. [Convert a RGB image in a greyscale image](#4-convert-a-rgb-image-in-a-greyscale-image)
 5. [Find the smallest and largest pixel values in an image](#5-find-the-smallest-and-largest-pixel-values-in-an-image)
