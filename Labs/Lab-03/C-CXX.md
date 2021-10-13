@@ -427,6 +427,24 @@ The program is now complete. You run it with different image files to test it. I
 
 ## 5. Find the smallest and largest pixel values in an image.
 
+### Create a test image
+
+- Choose an image of your choice.
+- If it looks nice (i.e. has a good contrast/brightness in our case), we will make it dull, sorry.
+- Open the image in ImageJ.
+- Go to the menu `Image->Type` and choose `8-bits` to convert it to greyscale.
+    - In the lab report, add the histogram of this image.
+- In the menu `Process->Math`, choose `Divide`. Use `3` or `4`.
+    - In the lab report, add the histogram of this new image.
+    - See the histogram? You just altered the contrast. Ooops.
+- In the menu `Process->Math`, choose `Add`. Use `25` or something along these lines.
+    - In the lab report, add the histogram of this new image.
+    - See the histogram? You just altered the brightness. Ooops.
+- Save the image as a `TIFF` file.
+- In the lab report, add a screenshot of this new image.
+
+### OpenCV code
+
 - To create the new program, copy paste `rgb2grey.cxx` into `contrastStretchingManual.cxx`. Do not forget to edit `CMakeLists.txt` as you did previously.
 - To retrieve the smallest and largest pixel values in `grey_image`, we will use
 ```cpp
@@ -446,7 +464,7 @@ We can use  it as follows:
 cout << "min value:\t" << minVal << endl;
 cout << "max value:\t" << maxVal << endl;
 ```
-- To test your program, run your program with [perfect_CT.tif](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/perfect_CT.tif) from last week.
+- To test your program, run your program with your new test image.
 - In your lab report, add a screenshot of the console with the output.
 - Open [perfect_CT.tif](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-02/perfect_CT.tif) with ImageJ. Go to the menu `Analyze -> Measure`.
 - In your lab report, add a screenshot of the table from ImageJ that displays the min and max values.
