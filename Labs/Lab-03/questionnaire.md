@@ -1,4 +1,4 @@
-# ICE3111 -- Computer Vision -- Lab 2 -- questionnaire
+# ICE3111 -- Computer Vision -- Lab 3 -- questionnaire
 
 (worth 30% of Assignment 1)
 
