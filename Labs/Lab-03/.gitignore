@@ -8,6 +8,12 @@ rgb2grey.cxx
 contrastStretchingManual.cxx
 contrastStretchingCV.cxx
 
+gaussianFilter.py
+sharpen.py
+
+gaussianFilter.cxx
+sharpen.cxx
+
 CMakeLists.txt
 
 bin/
