@@ -9,7 +9,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 # Lab 4 -- No new material this week
 
-Complete [Lab 3](Lab-03/)
+Complete [Lab 3](../Lab-03/)
 
 # Next week
 
