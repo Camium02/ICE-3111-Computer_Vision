@@ -19,6 +19,21 @@ We'll create three programs today. They all rely on `rgb2grey.cxx` that we wrote
 
 # 1. Gaussian filtering
 
+Answer the following questions in your lab report:
+
+- Is a Gaussian filter a point operator?
+    - YES/NO
+
+- Is a Gaussian filter a linear filter?
+    - YES/NO
+
+- Is a Gaussian filter a convolution filter?
+    - YES/NO
+
+- Explain in your own terms the main difference(s) between a point operator and a convolution filter.
+
+
+
 ## Imaging pipeline:
 
 - Open an image
@@ -40,7 +55,7 @@ TARGET_INCLUDE_DIRECTORIES(gaussianFilter PUBLIC ${OpenCV_INCLUDE_DIRS})
 TARGET_LINK_LIBRARIES (gaussianFilter   ${OpenCV_LIBS})
 ```
 
-## Filter the greyscale image
+## Filter the greyscale image with a fixed kernel radius
 
 The function we will use is
 
