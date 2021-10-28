@@ -7,7 +7,7 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Introduction to Spatial Filtering in C/C++: Application to sharpening and edge detection
+# Introduction to Spatial Filtering in C/C++: Application to sharpening
 
 We'll create three programs today. They all rely on `rgb2grey.py` that we wrote last time. I suggest that you put all the code in the same folder at last lab.
 

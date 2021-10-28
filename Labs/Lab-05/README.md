@@ -7,7 +7,7 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Lab 5 -- Introduction to OpenCV in C/C++ and Python, and Point Operators
+# Lab 5 -- Introduction to Spatial Filtering: Application to sharpening
 
 
 - (worth 60% of Assignment 1)
