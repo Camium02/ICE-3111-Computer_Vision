@@ -14,6 +14,15 @@ Deadline: 10/11/2021 at 23:59
 - Use (colour) syntax highlighting.
 - Show line numbers (optional)
 
+**NOTE: I want you to provide the command line arguments to show the effects of various parameters, e.g. changing the radius of Gaussian filter, or the `alpha` value of the image sharpening method.**
+
+<br/>
+
+<br/>
+
+<br/>
+
+
 
 # 1. Gaussian filtering
 
@@ -30,115 +39,185 @@ Deadline: 10/11/2021 at 23:59
 
 - Explain in your own terms the main difference(s) between a point operator and a convolution filter. [3 marks]
 
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <br/>
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <br/>
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <br/>
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <br/>
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <br/>
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <br/>
+
 
 ## Filter the greyscale image with a fixed kernel radius [4 marks]
 
 Include here an evidence of testing, e.g. filtering two different images
 
+<br/>
+
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
 
+<br/>
 
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
+
+<br/>
+
+<br/>
 
 
 ## Update the command line
 
-- Include here evidence of testing an image with various filter radius
+- Include here evidence of testing an image with various filter radius [9 marks]
 
 
-    - Command line used [3 marks]:
+    - Command line used:  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+<br/>
 
-| Original image              | Filtered image              |
-|-----------------------------|-----------------------------|
-| REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
-
-
-    - Command line used [3 marks]:
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
 
+<br/>
 
-    - Command line used [3 marks]:
+<br/>
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- Command line used:  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+<br/>
+
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
+
+<br/>
+
+<br/>
+
+- Command line used:  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+<br/>
+
+<br/>
+
+| Original image              | Filtered image              |
+|-----------------------------|-----------------------------|
+| REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
+
+<br/>
+
+<br/>
 
 - Add your source code below [20 marks]
     - Make sure the code is commented to explain what it is doing.
     - **DO NOT FORGET TO ADD A PREAMBLE** [1 mark].
 
+<br/>
+
+<br/>
+
+<br/>
 
 # 2. Image sharpening
+
+## Fixed  `filter_radius` and `alpha` values
 
 - Step 13 of Lab script: include evidence of testing, e.g. sharpening two different images. Use the default value of `filter_radius` and `alpha`.
 
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+<br/>
+
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
 
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+<br/>
+
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
 
-- Step 14 of Lab script: include evidence of testing, e.g. sharpening an image with different combination of `filter_radius` and `alpha`.
+<br/>
 
-- Command line used [3 marks]:
+<br/>
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+## Varying combinations of  `filter_radius` and `alpha` values
 
-| Original image              | Filtered image              |
-|-----------------------------|-----------------------------|
-| REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
+- Step 14 of Lab script: include evidence of testing, e.g. sharpening an image with different combination of `filter_radius` and `alpha`. [12 marks]
 
+- Command line used:  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-- Command line used [3 marks]:
+<br/>
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-| Original image              | Filtered image              |
-|-----------------------------|-----------------------------|
-| REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
-
-
-- Command line used [3 marks]:
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
 
+<br/>
 
-- Command line used [3 marks]:
+<br/>
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- Command line used:  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+<br/>
+
+<br/>
 
 | Original image              | Filtered image              |
 |-----------------------------|-----------------------------|
 | REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
 
+<br/>
 
-- Add your source code below [25 marks]
+<br/>
+
+- Command line used:  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+<br/>
+
+<br/>
+
+| Original image              | Filtered image              |
+|-----------------------------|-----------------------------|
+| REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
+
+<br/>
+
+<br/>
+
+- Command line used:  \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+<br/>
+
+<br/>
+
+| Original image              | Filtered image              |
+|-----------------------------|-----------------------------|
+| REPLACE WITH YOUR OWN IMAGE | REPLACE WITH YOUR OWN IMAGE |
+
+<br/>
+
+<br/>
+
+
+- Add your source code below **(even if you did not complete Step 14)** [25 marks]
     - Make sure the code is commented to explain what it is doing.
     - **DO NOT FORGET TO ADD A PREAMBLE** [1 mark].
