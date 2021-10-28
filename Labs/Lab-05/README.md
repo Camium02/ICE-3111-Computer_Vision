@@ -18,7 +18,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 Look at the ellipses in the mindmap. It illustrates which concepts we are discussing this week.
 
-![Week 5 mindmap](../../mindmap/Week-05/screenshot.png)
+![Week 5 mindmap](mindmap.png)
 
 Last week we studied spatial filtering, inc. low-pass filters, high-pass filters, convolution (linear filtering) and median filter. We applied some of them to reduce noise (low-pass filters), and to sharpen blurry images.
 This week we focused of the edge detection. It uses a combination of linear filtering (high-pass filters), point operators (blending to compute the gradient magnitude, and threshold segmentation). We'll implement such techniques in the lab this week but to sharpen an image. Details on image sharpening can be found in Slide in the lecture of Week 4.
