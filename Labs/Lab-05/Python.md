@@ -1,5 +1,5 @@
 ---
-title: Lab 5 -- Introduction to Spatial Filtering in Python: Application to sharpening and edge detection.
+title: Lab 5 -- Introduction to Spatial Filtering in Python: Application to sharpening.
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision
 date: Week 5
