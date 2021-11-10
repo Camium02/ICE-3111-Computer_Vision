@@ -27,11 +27,6 @@ The techniques you will use today and next week are:
 - Implement the background subtraction algorithm,
     - Absolute difference between two images,
     - Binary thresholding.
-    <!-- - Slider to control the threshold,
-    - Cleaning a binary image using mathematical morphology (opening and closing),
-    - Highlight moving objects,
-    - Remove small objects,
-- Estimate the motion of a moving object. -->
 
 # Preliminaries
 
