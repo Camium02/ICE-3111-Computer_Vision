@@ -7,9 +7,11 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Lab 7 -- No new material this week
+# Lab 7 -- TBA
 
-Complete [Lab 6](../Lab-06/)
+- Complete [Lab 6](../Lab-06/)
+- TBA
+
 
 # Next week
 
