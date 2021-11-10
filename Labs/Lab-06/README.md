@@ -30,7 +30,7 @@ The techniques you will use today and next week are:
 
 # Preliminaries
 
-There are 3 video files to test your code.
+There are 3 video files ([one_moving_object.avi](one_moving_object.avi), [change_of_lighting_conditions.avi](change_of_lighting_conditions.avi), and [two_moving_objects.avi](two_moving_objects.avi)) to test your code.
 
 - [![one_moving_object.gif](./one_moving_object.gif)](one_moving_object.avi)
 - [![change_of_lighting_conditions.gif](./change_of_lighting_conditions.gif)](change_of_lighting_conditions.avi)
