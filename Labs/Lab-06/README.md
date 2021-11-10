@@ -32,9 +32,9 @@ The techniques you will use today and next week are:
 
 There are 3 video files to test your code.
 
-- ![one_moving_object.gif](./one_moving_object.gif)
-- ![change_of_lighting_conditions.gif](./change_of_lighting_conditions.gif)
-- ![two_moving_objects.gif](./two_moving_objects.gif)
+- [![one_moving_object.gif](./one_moving_object.gif)](one_moving_object.avi)
+- [![change_of_lighting_conditions.gif](./change_of_lighting_conditions.gif)](change_of_lighting_conditions.avi)
+- [![two_moving_objects.gif](./two_moving_objects.gif)](two_moving_objects.avi)
 
 Download them and save them on your disk.
 
