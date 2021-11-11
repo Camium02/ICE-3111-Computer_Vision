@@ -18,7 +18,7 @@ I suggest that you create a new folder for this week. Create the following files
 - `motionDetection.cxx`, and
 - `CMakeLists.txt`.
 
-For each `.cxx` files, had a preamble using C++ comments. Each preamble must describe the program:
+For each `.cxx` files, add a preamble using C++ comments. Each preamble must describe the program:
 
 1. the author of the program (you),
 2. the date,
