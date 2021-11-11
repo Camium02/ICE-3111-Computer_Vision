@@ -95,20 +95,43 @@ For each `.py` files, add a preamble using Python comments. Each preamble must d
     1. The file name, here `sys.argv[1]`,
     2. The codec to encode the videos (your best bet is `cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')` as it is included in OpenCV),
     3. The framerate in frames per second. You can use the same one as the one from the input video, i.e. `video_input.get(CAP_PROP_FPS)`
+        - However, sometimes it may not work, and
+        - we may have to force another value, e.g. 30.
     4. The size of the image. You need to grab a frame with `ret, frame = video_input.read()`.
 
     ```python
+    ret, frame = video_input.read() # To retrieve the size of a frame
+
+    fps = video_input.get(cv2.CAP_PROP_FPS); # Get the framerate from the camera
+
+    if fps == 0: # If it has failed, use 30
+        fps = 30
+
+    frame_delay_in_sec = 1.0 / fps # Time between two frame acquisitions in sec
+    frame_delay_in_ms = frame_delay_in_sec  * 1000 # Time between two frame acquisitions in ms
+
     video_output = cv2.VideoWriter(sys.argv[1],
                              cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'),
-                             video_input.get(cv2.CAP_PROP_FPS),
+                             fps,
                              (frame.shape[1], frame.shape[0]))
     ```
+
+- Check if the video writer is open,
+    - If yes, proceed;
+    - If not, throw an error message
+
+    ```python
+    if not video_output.isOpened():
+        raise IOError("Cannot open the video output")
+    ```
+
 - In the loop, after grabbing a new frame, add it to the video output:
 
     ```python
     video_output.write(frame)
     ```
 
+- At the end of the `while` loop, replace `key = cv2.waitKey(1)` with `key = cv2.waitKey(frame_delay_in_ms)`
 - After the while loop, you may call `video_output.release()` although this is optional as the destructor of the object will take care of closing the output video file.
 
 - Make sure you comment your code to show your understanding. Marks will be allocated to comments.
@@ -124,7 +147,11 @@ For each `.py` files, add a preamble using Python comments. Each preamble must d
     - If yes, `sys.argv[1]` is the filename of the input.
 - Replace `0` in `video_input = cv2.VideoCapture(0);` with `sys.argv[1]`.
 - You can also replace `"Input video"` in `imshow("Input video", frame);` with `sys.argv[1]`.
-- Voila, you create a program to read video files.
+- Retrieve the framerate of the `VideoCapture` in frames per second using `fps = video_input.get(cv2.CAP_PROP_FPS)`.
+- From this number, compute the time delay between two successive frames: `frame_delay_in_sec = 1.0 / fps`
+- Convert this number in milliseconds: `frame_delay_in_ms = frame_delay_in_sec  * 1000`.
+- At the end of the `while` loop, replace `key = cv2.waitKey(1);` with `key = cv2.waitKey(frame_delay_in_ms);`
+- Voila, you created a program to read video files.
 
 - Make sure you comment your code to show your understanding. Marks will be allocated to comments.
 - In your report, add your code and add evidence of testing, e.g. a screenshot of the command line, and of your window.

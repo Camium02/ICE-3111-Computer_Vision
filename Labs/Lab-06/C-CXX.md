@@ -236,20 +236,44 @@ ENDIF (WIN32)
     1. The file name, here `argv[1]`,
     2. The codec to encode the videos (your best bet is `cv::VideoWriter::fourcc('M', 'J', 'P', 'G')` as it is included in OpenCV),
     3. The framerate in frames per second. You can use the same one as the one from the input video, i.e. `video_input.get(CAP_PROP_FPS)`
+        - However, sometimes it may not work, and
+        - we may have to force another value, e.g. 30.
     4. The size of the image. You need to grab a frame with `video_input >> frame;` (make sure `frame` is declare above, you may have to move the declaration).
 
     ```cpp
+    Mat frame;
+    video_input >> frame; // To retrieve the size of a frame
+
+    int fps = video_input.get(CAP_PROP_FPS); // Get the framerate from the camera
+
+    if (fps == 0) fps = 30; // If it has failed, use 30
+
+    float frame_delay_in_sec = 1.0 / fps; // Time between two frame acquisitions in sec
+    float frame_delay_in_ms = frame_delay_in_sec  * 1000; // Time between two frame acquisitions in ms
+
+    // Open the video output
     VideoWriter video_output(argv[1],
-                             VideoWriter::fourcc('M', 'J', 'P', 'G'),
-                             video_input.get(CAP_PROP_FPS),
-                             Size(frame.cols, frame.rows));
+        VideoWriter::fourcc('M', 'J', 'P', 'G'),
+        fps,
+        Size(frame.cols, frame.rows));
     ```
+
+- Check if the video writer is open,
+    - If yes, proceed;
+    - If not, throw an error message
+
+    ```cpp
+    if (!video_output.isOpened())
+        throw "Cannot open the video output";
+    ```
+
 - In the loop, after grabbing a new frame, add it to the video output:
 
     ```cpp
     video_output << frame;
     ```
 
+- At the end of the `while` loop, replace `key = waitKey(1);` with `key = waitKey(frame_delay_in_ms);`
 - After the while loop, you may call `video_output.release();` although this is optional as the destructor of the object will take care of closing the output video file.
 
 - Make sure you comment your code to show your understanding. Marks will be allocated to comments.
@@ -265,12 +289,14 @@ ENDIF (WIN32)
     - If yes, `argv[1]` is the filename of the input.
 - Replace `0` in `VideoCapture video_input(0);` with `argv[1]`.
 - You can also replace `"Input video"` in `imshow("Input video", frame);` with `argv[1]`.
-- Voila, you create a program to read video files.
+- Retrieve the framerate of the `VideoCapture` in frames per second using `int fps = video_input.get(CAP_PROP_FPS)`.
+- From this number, compute the time delay between two successive frames: `float frame_delay_in_sec = 1.0 / fps;`
+- Convert this number in milliseconds: `float frame_delay_in_ms = frame_delay_in_sec  * 1000;`.
+- At the end of the `while` loop, replace `key = waitKey(1);` with `key = waitKey(frame_delay_in_ms);`
+- Voila, you created a program to read video files.
 
 - Make sure you comment your code to show your understanding. Marks will be allocated to comments.
 - In your report, add your code and add evidence of testing, e.g. a screenshot of the command line, and of your window.
-
-
 
 # 4. Motion detection
 
