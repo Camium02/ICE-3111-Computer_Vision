@@ -17,7 +17,7 @@ I suggest that you create a new folder for this week. Create the following files
 - `readVideoFile.py`,and
 - `motionDetection.py`.
 
-For each `.py` files, had a preamble using Python comments. Each preamble must describe the program:
+For each `.py` files, add a preamble using Python comments. Each preamble must describe the program:
 
 1. the author of the program (you),
 2. the date,
