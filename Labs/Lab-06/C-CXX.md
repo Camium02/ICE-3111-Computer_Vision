@@ -287,12 +287,14 @@ ENDIF (WIN32)
     - Is the number of arguments `argc` equal to 2?
     - If no, then throw a suitable error message and exit,
     - If yes, `argv[1]` is the filename of the input.
-- Replace `0` in `VideoCapture video_input(0);` with `argv[1]`.
-- You can also replace `"Input video"` in `imshow("Input video", frame);` with `argv[1]`.
-- Retrieve the framerate of the `VideoCapture` in frames per second using `int fps = video_input.get(CAP_PROP_FPS)`.
-- From this number, compute the time delay between two successive frames: `float frame_delay_in_sec = 1.0 / fps;`
-- Convert this number in milliseconds: `float frame_delay_in_ms = frame_delay_in_sec  * 1000;`.
-- At the end of the `while` loop, replace `key = waitKey(1);` with `key = waitKey(frame_delay_in_ms);`
+- Before the while loop
+    - Replace `0` in `VideoCapture video_input(0);` with `argv[1]`.
+    - Retrieve the framerate of the `VideoCapture` in frames per second using `int fps = video_input.get(CAP_PROP_FPS)`.
+    - From this number, compute the time delay between two successive frames: `float frame_delay_in_sec = 1.0 / fps;`
+    - Convert this number in milliseconds: `float frame_delay_in_ms = frame_delay_in_sec  * 1000;`.
+- In the while loop:
+    - You can replace `"Input video"` in `imshow("Input video", frame);` with `argv[1]`.
+    - At the end of the `while` loop, replace `key = waitKey(1);` with `key = waitKey(frame_delay_in_ms);`
 - Voila, you created a program to read video files.
 
 - Make sure you comment your code to show your understanding. Marks will be allocated to comments.
