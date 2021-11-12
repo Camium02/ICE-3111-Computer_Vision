@@ -108,7 +108,7 @@ For each `.py` files, add a preamble using Python comments. Each preamble must d
         fps = 30
 
     frame_delay_in_sec = 1.0 / fps # Time between two frame acquisitions in sec
-    frame_delay_in_ms = frame_delay_in_sec  * 1000 # Time between two frame acquisitions in ms
+    frame_delay_in_ms = int(frame_delay_in_sec  * 1000) # Time between two frame acquisitions in ms
 
     video_output = cv2.VideoWriter(sys.argv[1],
                              cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'),
@@ -149,7 +149,7 @@ For each `.py` files, add a preamble using Python comments. Each preamble must d
     - Replace `0` in `video_input = cv2.VideoCapture(0);` with `sys.argv[1]`.
     - Retrieve the framerate of the `VideoCapture` in frames per second using `fps = video_input.get(cv2.CAP_PROP_FPS)`.
     - From this number, compute the time delay between two successive frames: `frame_delay_in_sec = 1.0 / fps`
-    - Convert this number in milliseconds: `frame_delay_in_ms = frame_delay_in_sec  * 1000`.
+    - Convert this number in milliseconds: `frame_delay_in_ms = int(frame_delay_in_sec  * 1000)`.
 - In the while loop:
     - You can replace `"Input video"` in `imshow("Input video", frame);` with `sys.argv[1]`.
     - At the end of the `while` loop, replace `key = cv2.waitKey(1);` with `key = cv2.waitKey(frame_delay_in_ms);`
