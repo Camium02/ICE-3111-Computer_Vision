@@ -151,7 +151,7 @@ Get rid of `sharpen_image = np.zeros((200, 200)) # It's a mock image` and replac
 
 4. Try and run your code until it's free of errors. If you see and save a black image, then it's fine.
 
-5. In the `sharpen` function, filter `anInputImage` with a Gaussian filter of appropriate filter size, just like we did in the previous program. Save the blurry image in `blur_image` (don't forget to declare it).
+5. In the `sharpen` function, filter `anInputImage` with a Gaussian filter of appropriate filter size, just like we did in the previous program. Save the blurry image in `blur_image`.
 
 6. Convert `blur_image` and `anInputImage` in floating-point number:
 
