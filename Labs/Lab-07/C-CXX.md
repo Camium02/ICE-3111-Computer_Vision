@@ -1,5 +1,5 @@
 ---
-title: Lab 7 --  From motion detection to motion tracking and motion estimation in C/C++
+title: Lab 7 -- From motion detection to motion tracking and motion estimation in Python
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision
 date: Week 8
@@ -9,333 +9,238 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 #  From motion detection to motion tracking and motion estimation in C/C++
 
-We'll create 4 programs today.
-I suggest that you create a new folder for this week. Create the following files:
+We'll create 1 program only today.
+I suggest that you keep in in the same folder as last week's lab as we are going to use the same data.
 
-- `readWebcam.cxx`,
-- `saveWebcam.cxx`,
-- `readVideoFile.cxx`,
-- `motionDetection.cxx`, and
-- `CMakeLists.txt`.
+1. Copy `motionDetection.cxx` into `motionTracking.cxx`
+2. In `motionTracking.cxx`, add a preamble using C/C++ comments. The preamble must describe the program:
 
-For each `.cxx` files, add a preamble using C++ comments. Each preamble must describe the program:
+    1. the author of the program (you),
+    2. the date,
+    3. the purpose of the file (inc. the command line options),
+    4. the todo-list if anything is missing.
 
-1. the author of the program (you),
-2. the date,
-3. the purpose of the file (inc. the command line options),
-4. the todo-list if anything is missing.
-
-For now create dummy OpenCV programs. We just want them to compile without any error. Add in each file the following code:
-
-```cpp
-#include <exception> // Header for catching exceptions
-#include <iostream>  // Header to display text in the console
-#include <opencv2/opencv.hpp> // Main OpenCV header
-
-
-using namespace std;
-using namespace cv;
-
-
-//-----------------------------
-int main(int argc, char** argv)
-//-----------------------------
-{
-    try
-    {
-        // Write your own code here
-        //....
-        //....
-        //....
-    }
-    // An error occured
-    catch (const std::exception& error)
-    {
-        // Display an error message in the console
-        cerr << error.what() << endl;
-    }
-    catch (const std::string& error)
-    {
-        // Display an error message in the console
-        cerr << error << endl;
-    }
-    catch (const char* error)
-    {
-        // Display an error message in the console
-        cerr << error << endl;
-    }
-    catch (...)
-    {
-        // Display an error message in the console
-        cerr << "Unnown error caught" << endl;
-    }
-
-#ifdef WIN32
-#ifdef _DEBUG
-    system("pause");
-#endif
-#endif
-
-    return 0;
-}
-```
-
-**Make sure you downloaded the video files** I provided and that they are in the same folder as `CMakeLists.txt`. **It's very important** as CMake is going to copy the files so that they are easily accessible by your programs. The corresponding `CMakeLists.txt` file is:
-
-```cmake
-CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
-PROJECT(ICE-3111-Lab-Week7)
-
-set (CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-IF (WIN32)
-    SET (CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "D:\\opencv\\build")
-    SET (CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "C:\\opencv\\build")
-ENDIF (WIN32)
-
-FIND_PACKAGE(OpenCV REQUIRED)
-
-ADD_EXECUTABLE (readWebcam   readWebcam.cxx)
-TARGET_INCLUDE_DIRECTORIES(readWebcam PUBLIC ${OpenCV_INCLUDE_DIRS})
-TARGET_LINK_LIBRARIES (readWebcam   ${OpenCV_LIBS})
-
-ADD_EXECUTABLE (saveWebcam   saveWebcam.cxx)
-TARGET_INCLUDE_DIRECTORIES(saveWebcam PUBLIC ${OpenCV_INCLUDE_DIRS})
-TARGET_LINK_LIBRARIES (saveWebcam   ${OpenCV_LIBS})
-
-ADD_EXECUTABLE (readVideoFile   readVideoFile.cxx)
-TARGET_INCLUDE_DIRECTORIES(readVideoFile PUBLIC ${OpenCV_INCLUDE_DIRS})
-TARGET_LINK_LIBRARIES (readVideoFile   ${OpenCV_LIBS})
-
-ADD_EXECUTABLE (motionDetection   motionDetection.cxx)
-TARGET_INCLUDE_DIRECTORIES(motionDetection PUBLIC ${OpenCV_INCLUDE_DIRS})
-TARGET_LINK_LIBRARIES (motionDetection   ${OpenCV_LIBS})
-
-FILE (COPY "${CMAKE_CURRENT_SOURCE_DIR}/one_moving_object.avi"
-      DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-
-FILE (COPY "${CMAKE_CURRENT_SOURCE_DIR}/change_of_lighting_conditions.avi"
-      DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-
-FILE (COPY "${CMAKE_CURRENT_SOURCE_DIR}/two_moving_objects.avi"
-      DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-
-SET (CV_VERSION_STRING ${OpenCV_VERSION_MAJOR}${OpenCV_VERSION_MINOR}${OpenCV_VERSION_PATCH})
-IF (WIN32)
-    IF ( ${OpenCV_VERSION_MAJOR} EQUAL 4)
-        IF (EXISTS "${OpenCV_DIR}/x64/vc15/bin/opencv_videoio_ffmpeg${CV_VERSION_STRING}_64.dll")
-            FILE (COPY        "${OpenCV_DIR}/x64/vc15/bin/opencv_videoio_ffmpeg${CV_VERSION_STRING}_64.dll"
-                  DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-        ELSE ()
-            MESSAGE (WARNING "opencv_videoio_ffmpeg${CV_VERSION_STRING}_64.dll is not in ${OpenCV_DIR}/x64/vc15/bin/, you have to make sure is it in the PATH or to copy it manually in your project binary directory")
-        ENDIF ()
-  ELSE ()
-        IF (EXISTS "${OpenCV_DIR}/x64/vc15/bin/opencv_ffmpeg${CV_VERSION_STRING}_64.dll")
-            FILE (COPY        "${OpenCV_DIR}/x64/vc15/bin/opencv_ffmpeg${CV_VERSION_STRING}_64.dll"
-                  DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-        ELSE ()
-            MESSAGE (WARNING "opencv_ffmpeg${CV_VERSION_STRING}_64.dll is not in ${OpenCV_DIR}/x64/vc15/bin/, you have to make sure is it in the PATH or to copy it manually in your project binary directory")
-        ENDIF ()
-  ENDIF ()
-
-    IF (EXISTS "${OpenCV_DIR}/x64/vc15/bin/opencv_videoio_msmf${CV_VERSION_STRING}_64.dll")
-        FILE (COPY        "${OpenCV_DIR}/x64/vc15/bin/opencv_videoio_msmf${CV_VERSION_STRING}_64.dll"
-              DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-    ELSE ()
-        MESSAGE (WARNING "opencv_videoio_msmf${CV_VERSION_STRING}_64.dll is not in ${OpenCV_DIR}/x64/vc15/bin/, you have to make sure is it in the PATH or to copy it manually in your project binary directory")
-    ENDIF ()
-
-    IF (EXISTS "${OpenCV_DIR}/x64/vc15/bin/opencv_videoio_msmf${CV_VERSION_STRING}_64d.dll")
-        FILE (COPY        "${OpenCV_DIR}/x64/vc15/bin/opencv_videoio_msmf${CV_VERSION_STRING}_64d.dll"
-              DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-    ELSE ()
-        MESSAGE (WARNING "opencv_videoio_msmf${CV_VERSION_STRING}_64d.dll is not in ${OpenCV_DIR}/x64/vc15/bin/, you have to make sure is it in the PATH or to copy it manually in your project binary directory")
-    ENDIF ()
-
-    IF (EXISTS "${OpenCV_DIR}/x64/vc15/bin/opencv_world${CV_VERSION_STRING}.dll")
-        FILE (COPY        "${OpenCV_DIR}/x64/vc15/bin/opencv_world${CV_VERSION_STRING}.dll"
-              DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-    ELSE ()
-        MESSAGE (WARNING "opencv_world${CV_VERSION_STRING}.dll is not in ${OpenCV_DIR}/x64/vc15/bin/, you have to make sure is it in the PATH or to copy it manually in your project binary directory")
-    ENDIF ()
-
-    IF (EXISTS "${OpenCV_DIR}/x64/vc15/bin/opencv_world${CV_VERSION_STRING}d.dll")
-        FILE (COPY        "${OpenCV_DIR}/x64/vc15/bin/opencv_world${CV_VERSION_STRING}d.dll"
-              DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-    ELSE ()
-        MESSAGE (WARNING "opencv_world${CV_VERSION_STRING}d.dll is not in ${OpenCV_DIR}/x64/vc15/bin/, you have to make sure is it in the PATH or to copy it manually in your project binary directory")
-    ENDIF ()
-ENDIF (WIN32)
-```
+3. Edit `CMakeLists.txt` to add the new program.
+(you must add 3 lines)
 
 ## Contents
 
-1. [Read a video from the webcam](#1-read-a-video-from-the-webcam)
-2. [Save a video](#2-save-a-video)
-3. [Read a video from a file](#3-read-a-video-from-a-file)
-4. [Motion detection](#4-motion-detection)
+1. [Changes of illumination](#1-changes-of-illumination),
+2. [Clean the foreground mask](#2-clean-the-foreground-mask),
+3. [Identify the moving objects](#3-identify-the-moving-objects),
+4. [Highlight moving objects in the original video](#5-highlight-moving-objects-in-the-original-video), and
+5. [Track the position of each moving object](#4-track-the-position-of-each-moving-object),
+6. [Compute the velocity of each object](#6-compute-the-velocity-of-each-object).
 
-# 1. Read a video from the webcam
+**NOTE: You must test your new program (`motionTracking.cxx`) with the 3 videos I provided. You can use other videos too, but you must at least demonstrate that your code works with the one I provided."**
 
-- Edit `readWebcam.cxx`.
-- To use the webcam,  you need to create a `cv::VideoCapture` object and pass `0` as the constructor argument to use the camera.
+# 1. Changes of illumination
 
-    ```cpp
-    VideoCapture video_input(0);
-    ```
+In the following video, the lighting condition will change.
 
-- Once the object is instantiated, make sure the camera is actually open. Yes, we must check if errors occur so that the program does not crash.
-    - If the camera is not open, throw an error,
-    - Else proceed.
+[![../Lab-06change_of_lighting_conditions.gif](../Lab-06/change_of_lighting_conditions.gif)](https://www.fpvidal.net/ICE3111/change_of_lighting_conditions.avi)
 
-    ```cpp
-    if (!video_input.isOpened())
-        throw "Cannot open the video stream";
-    ```
+The light was off at the beginning of the recording. I asked someone to turn it on during the recording.
 
-- Now we can display the images from the camera. We must use a while loop. It's very similar to what we have done so far, except that at each iteration of the loop, we:
+|  | Light off | Light on |
+|--|-----------|----------|
+| Original frame | ![light-off.jpg](light-off.jpg)     | ![light-on.jpg](light-on.jpg)    |
+| Greyscale | ![light-off-grey.png](light-off-grey.png)     | ![light-on-grey.png](light-on-grey.png)    |
+| Histogram of greyscale | ![Histogram_of_light-off-grey.png](Histogram_of_light-off-grey.png)     | ![Histogram_of_light-on-grey.png](Histogram_of_light-on-grey.png)    |
 
-    - Grab a new frame,
-    - Check if a new image was loaded from the camera,
-    - Display it.
+The absolute difference between the two greyscale images is:
 
-    ```cpp
-    Mat frame;
-    int key = -1;
-    while (key != 27 && key != 'q')
+![absolute_difference.png](absolute_difference.png)
+
+Bright pixels show pixels whose intensity has changed considerably.
+We can see two things:
+
+- the noise is an important factor,
+- the change of illumination is also an important factor.
+
+We must mitigate for both.
+
+## Noise
+
+To account for the noise, we can smooth the images with a median filter. Below I used a 5x5 filter:
+
+|  | Light off | Light on |
+|--|-----------|----------|
+| Greyscale | ![light-off-grey.png](light-off-grey.png)     | ![light-on-grey.png](light-on-grey.png)    |
+| Smoothed | ![light-off-grey-median.png](light-off-grey-median.png)     | ![light-on-grey-median.png](light-on-grey-median.png)    |
+
+The absolute difference becomes:
+
+![absolute_difference-median.png](absolute_difference-median.png)
+
+The effect of the noise has been attenuated.
+
+### Edit `motionTracking.cxx`
+
+1. Filter the background with a median filter. You can use a 5x5 filter as follows:
+
+```cpp
+cv::medianBlur(background, background, 5);
+```
+
+(the 1st occurence of `background` is the input image, the 2nd occurence is the output image, `5` is the size of the filter)
+
+You may experiment different values.
+
+2. In the `while` loop, backup the incoming frame before you process it.
+
+    - Just after the call to `video_input >> frame`, backup the frame with `cv::Mat frame_backup = frame.clone();`
+    - Once the frame is backed up, filter the incoming `frame` with the same filter.
+
+3. Run and test your program using several videos.
+In your report, document what changes you made in your code and document your tests. You must add screenshots.
+
+### Change of illumination
+
+The zero-mean, unit-variance normalisation (or standardisation as it is called in machine learning) is a popular technique in computer vision to address changes of illumination. After this operation, the average pixel value is zero, and the standard deviation is one.
+
+### Edit `motionTracking.cxx`
+
+1. After filtering the background with the median filter, and after the conversion to greyscale, apply the normalisation with:
+
+```cpp
+
+cv::Scalar mean, stddev;
+cv::meanStdDev(background, mean, stddev);
+background.convertTo(background, CV_32F);
+background -= mean;
+background /= stddev;
+```
+
+**NOTE: that it is important to convert the pixel data to floating-point numbers.**
+
+2. In the `while` loop, do the same for the incoming `frame`.
+**Note that `imshow("foreground", foreground);` may display a black image as the range of pixel values is  no longer valid.**
+
+3. Fix the display if needed by replacing
+
+```cpp
+imshow("foreground", foreground);
+```
+
+with
+
+```cpp
+double min_val, max_val;
+cv::minMaxLoc(foreground, &min_val, &max_val);
+imshow("foreground", (foreground - min_val) / (max_val - min_val));
+```
+
+4. Change the threshold. Try `1`. Try other values until you are satisfied with the threshold.
+
+5. Test your code and document in your report what changes you made to your code. You must add screenshots.
+
+# 2. Clean the foreground mask
+
+Now, we want
+
+1. to remove tiny islands from the foreground mask, and
+2. fill small holes.
+
+as follows:
+
+
+| Before cleaning | After cleaning |
+|-----------------|----------------|
+| ![foreground_mask_screenshot.png](foreground_mask_screenshot.png) | ![foreground_mask_screenshot_morphology.png](foreground_mask_screenshot_morphology.png) |
+
+A median filter could do the job, however a large size might be required. We will prefer using mathematical morphology instead.
+
+1. Make sure your binary mask is in the right format. Replace `cv::cvtColor(foreground_mask, foreground_mask, COLOR_GRAY2BGR);` with `            foreground_mask.convertTo(foreground_mask, CV_8U);
+`. It is now a greyscale image in unsigned byte.
+
+2. Filter `foreground_mask` as follows:
+
+```cpp
+int element_size = 13;
+cv::Mat structuring_element = getStructuringElement( cv::MORPH_ELLIPSE, cv::Size( element_size, element_size ) );
+cv::morphologyEx( foreground_mask, foreground_mask, cv::MORPH_CLOSE, structuring_element );
+cv::morphologyEx( foreground_mask, foreground_mask, cv::MORPH_OPEN, structuring_element );
+```
+
+**NOTE: you can only apply these operation on the greyscale image in unsigned byte, i.e. AFTER you called `foreground_mask.convertTo(foreground_mask, CV_8U);`.**
+
+3. Change the size of the structuring element you are satisfied with its value.
+
+**NOTE: make sure you call ` imshow("foreground_mask", foreground_mask)` AFTER the mathematical morphology operations.**
+`
+4. Run and test your program using several videos and several sizes of structuring element.
+In your report, document what changes you made in your code and document your tests. You must add screenshots.
+
+# 3. Identify the moving objects
+
+To find the objects highlighted in white in `foreground_mask`, we need to find the contours:
+
+```cpp
+std::vector<std::vector<cv::Point> > contours;
+std::vector<cv::Vec4i> hierarchy;
+
+cv::findContours( foreground_mask, contours, hierarchy, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
+```
+
+# 4. Highlight moving objects in the original video
+
+We will only draw a contour if it is big enough (whatever big enough might be). We will draw it over the `frame_backup`.
+
+```cpp
+for (auto cnt = contours.begin(); cnt != contours.end(); cnt++)
+{
+    if (cv::contourArea(*cnt) > 0.1 / 100.0 * frame_backup.rows * frame_backup.cols)
     {
-        video_input >> frame;
-
-        if (frame.empty())
-        {
-            throw "Cannot grab frame from camera";
-        }
-
-        imshow("Input video", frame);
-
-        key = waitKey(1);
+        cv::Scalar colour(0,255,0);
+        cv::Rect bounding_box = cv::boundingRect(*cnt);
+        cv::rectangle( frame_backup, bounding_box.tl(), bounding_box.br(), colour, 2 );
     }
-    destroyAllWindows(); // Destroy all the created windows
-    video_input.release(); // We are now done with the camera, stop it
-    ```
+}
+```
 
-- Make sure you comment your code to show your understanding. Marks will be allocated to comments.
-- In your report, add your code and add evidence of testing, e.g. a few screenshots of your window.
+In the code above, a contour is big enough if its area is larger than 0.1% of the area of the whole image.
+You may have to tweak this number.
 
-# 2. Save a video
+**NOTE: Make sure that this is `frame_backup` that is written in `video_output`.**
 
-- Copy `readWebcam.cxx` into `saveWebcam.cxx`.
-- The command line for this program is: `readWebcam <output_video_file.avi>`
-- The first thing you need to do in the `try` block is check the command line arguments.
-    - Is the number of arguments `argc` equal to 2?
-    - If no, then throw a suitable error message and exit,
-    - If yes, `argv[1]` is the filename of the output.
-- Before the while loop, we need to create an instance of `cv::VideoWriter`. The parameters of the constructor are:
-    1. The file name, here `argv[1]`,
-    2. The codec to encode the videos (your best bet is `cv::VideoWriter::fourcc('M', 'J', 'P', 'G')` as it is included in OpenCV),
-    3. The framerate in frames per second. You can use the same one as the one from the input video, i.e. `video_input.get(CAP_PROP_FPS)`
-        - However, sometimes it may not work, and
-        - we may have to force another value, e.g. 30.
-    4. The size of the image. You need to grab a frame with `video_input >> frame;` (make sure `frame` is declare above, you may have to move the declaration).
+**NOTE: Make sure that this is `frame_backup` that is displayed instead of `frame` in "`Input video`". Make sure that you move the corresponding `imshow` at the end of the while loop.**
 
-    ```cpp
-    Mat frame;
-    video_input >> frame; // To retrieve the size of a frame
+Again, document your tests in your report.
 
-    int fps = video_input.get(CAP_PROP_FPS); // Get the framerate from the camera
+# 5. Track the position of each moving object
 
-    if (fps == 0) fps = 30; // If it has failed, use 30
+- Now we can display "Object 0" for the 1st object, "Object 1" for the 2nd  object, etc. with
 
-    float frame_delay_in_sec = 1.0 / fps; // Time between two frame acquisitions in sec
-    float frame_delay_in_ms = frame_delay_in_sec  * 1000; // Time between two frame acquisitions in ms
+We use `int i = cnt - contours.begin();` to retrieve the contour's index.
 
-    // Open the video output
-    VideoWriter video_output(argv[1],
-        VideoWriter::fourcc('M', 'J', 'P', 'G'),
-        fps,
-        Size(frame.cols, frame.rows));
-    ```
+```cpp
+cv::putText(frame_backup,
+            "Object " + std::to_string(i),
+            cv::Point(int(bounding_box.x + bounding_box.width / 2), int(bounding_box.y + bounding_box.height / 2)),
+            cv::FONT_HERSHEY_COMPLEX_SMALL,
+            2,
+            255);
+```
 
-- Check if the video writer is open,
-    - If yes, proceed;
-    - If not, throw an error message
+I get something like:
 
-    ```cpp
-    if (!video_output.isOpened())
-        throw "Cannot open the video output";
-    ```
+![moving_objects.png](moving_objects.png)
 
-- In the loop, after grabbing a new frame, add it to the video output:
+Again, document your tests in your report.
 
-    ```cpp
-    video_output << frame;
-    ```
+# 6. Compute the velocity of each object
 
-- At the end of the `while` loop, replace `key = waitKey(1);` with `key = waitKey(frame_delay_in_ms);`
-- After the while loop, you may call `video_output.release();` although this is optional as the destructor of the object will take care of closing the output video file.
+In the image above, you can see that `Object 0` is not actually an object that moves. You must find a way to ignore contours of all the objects that are not moving between successive frames as illustrated in:
 
-- Make sure you comment your code to show your understanding. Marks will be allocated to comments.
-- In your report, add your code and add evidence of testing, e.g. a screenshot of the command line, of the file in the file explorer, and the file playing in a video player.
+![moving_objects_only.png](moving_objects_only.png)
 
-# 3. Read a video from a file
+You could
 
-- Copy `readWebcam.cxx` into `readVideoFile.cxx`.
-- The command line for this program is: `readVideoFile <input_video_file.avi>`
-- The first thing you need to do in the `try` block is check the command line arguments.
-    - Is the number of arguments `argc` equal to 2?
-    - If no, then throw a suitable error message and exit,
-    - If yes, `argv[1]` is the filename of the input.
-- Before the while loop
-    - Replace `0` in `VideoCapture video_input(0);` with `argv[1]`.
-    - Retrieve the framerate of the `VideoCapture` in frames per second using `int fps = video_input.get(CAP_PROP_FPS)`.
-    - From this number, compute the time delay between two successive frames: `float frame_delay_in_sec = 1.0 / fps;`
-    - Convert this number in milliseconds: `float frame_delay_in_ms = frame_delay_in_sec  * 1000;`.
-- In the while loop:
-    - You can replace `"Input video"` in `imshow("Input video", frame);` with `argv[1]`.
-    - At the end of the `while` loop, replace `key = waitKey(1);` with `key = waitKey(frame_delay_in_ms);`
-- Voila, you created a program to read video files.
-
-- Make sure you comment your code to show your understanding. Marks will be allocated to comments.
-- In your report, add your code and add evidence of testing, e.g. a screenshot of the command line, and of your window.
-
-# 4. Motion detection
-
-- Copy `saveWebcam.cxx` into `motionDetection.cxx`.
-- The command line for this program is: `motionDetection <input_video_file.avi> <output_video_file.avi>`
-- The first thing you need to do in the `try` block is check the command line arguments.
-    - Is the number of arguments `argc` equal to 3?
-    - If no, then throw a suitable error message and exit,
-    - If yes, `argv[1]` is the filename of the input, and `argv[2]` is the filename of the output.
-    - **MAKE SURE YOU UPDATE THE INITIALISATION OF `video_input` and `video_output` ACCORDINGLY.**
-- Before the while loop, create a new image called `background` (the type in `Mat`).
-- Initialise `background` with the first frame of the video.
-- Convert `background` into a grey scale image.
-- In the while loop, convert the current `frame` into a grey scale image.
-- Still in the while loop, create a new image `foreground`. It is equal to the absolute difference between the current `frame` and `background`:
-
-    ```cpp
-    Mat foreground = cv::abs(background - frame);
-    ```
-- Show `foreground` in a new window using `imshow` and test your code with the videos I provided.
-- Only large variations correspond to the moving object(s). Apply a threshold to generate the foreground mask (declare a new image `foreground_mask`):
-
-    ```cpp
-    int threshold_value = 128;
-    Mat foreground_mask;
-    threshold(foreground, foreground_mask, threshold_value, 255, THRESH_BINARY);
-    ```
-
-- Show `foreground_mask` in a new window using `imshow` and test your code with the videos I provided.
-- If 128 is too high, lower its value, e.g. try 64.
-
-- Instead of save `frame` into `video_output`, save `foreground_mask` (just before you save the image, you must convert it to RGB with `cv::cvtColor(foreground_mask, foreground_mask, COLOR_GRAY2BGR);`).
-
-- Make sure you comment your code to show your understanding. Marks will be allocated to comments.
-- In your report, add your code and add evidence of testing, e.g. a screenshot of the command line, and of your windows.
-- You must test your code with several video files.
-- In your report, provide a critical analysis of the imaging pipeline we got so far.
-    - Does it work well?
-    - Does it has deficiencies?
-        - If it has deficiencies, what are they?
+1. update the background, and this is something we discussed in the lecture.
+2. Alternatively, for each iteration of the while loop, you could
+    1. backup the centre of the contours of the previous frame
+    2. for each contour of the new frame,
+        - if all the contour of the previous frame are far enough,
+        - then consider the object is moving,
+        - else consider that it is static (hence part of the background).

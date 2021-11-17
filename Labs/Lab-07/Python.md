@@ -86,8 +86,10 @@ You may experiment different values.
 
     - At the beginning of your file, `import copy`.
     - Just after the call to `ret, frame = video_input.read()`, backup the frame with `frame_backup = copy.deepcopy(frame)`
+    - Once the frame is backed up, filter the incoming `frame` with the same filter.
 
-filter the incoming `frame` with the same filter.
+3. Run and test your program using several videos.
+In your report, document what changes you made in your code and document your tests. You must add screenshots.
 
 ### Change of illumination
 
@@ -121,7 +123,7 @@ cv2.imshow("foreground", (foreground - np.min(foreground)) / (np.max(foreground)
 
 4. Change the threshold. Try `1`. Try other values until you are satisfied with the threshold.
 
-5. Test your code and document what changes you made in your report. You must add screenshots.
+5. Test your code and document in your report what changes you made to your code. You must add screenshots.
 
 # 2. Clean the foreground mask
 
@@ -157,7 +159,8 @@ foreground_mask = cv2.morphologyEx(foreground_mask, cv2.MORPH_OPEN, structuring_
 
 **NOTE: make sure you call ` cv2.imshow("foreground_mask", foreground_mask)` AFTER the mathematical morphology operations.**
 `
-4. Test your code and document what changes you made in your report. You must add screenshots.
+4. Run and test your program using several videos and several sizes of structuring element.
+In your report, document what changes you made in your code and document your tests. You must add screenshots.
 
 # 3. Identify the moving objects
 
@@ -184,6 +187,11 @@ You may have to tweak this number.
 
 **NOTE: Make sure that this is `frame_backup` that is written in `video_output`.**
 
+**NOTE: Make sure that this is `frame_backup` that is displayed instead of `frame` in "`Input video`". Make sure that you move the corresponding `imshow` at the end of the while loop.**
+
+
+
+Again, document your tests in your report.
 
 # 5. Track the position of each moving object
 
@@ -201,13 +209,23 @@ You may have to tweak this number.
                     255)
 ```
 
+
+I get something like:
+
+![moving_objects.png](moving_objects.png)
+
+Again, document your tests in your report.
+
 # 6. Compute the velocity of each object
 
-You must find a way to ignore contours of all the objects that are not moving between successive frames.
+In the image above, you can see that `Object 0` is not actually an object that moves. You must find a way to ignore contours of all the objects that are not moving between successive frames as illustrated in:
+
+![moving_objects_only.png](moving_objects_only.png)
+
 You could
 
 1. update the background, and this is something we discussed in the lecture.
-2. Alternatively, you can
+2. Alternatively, for each iteration of the while loop, you could
     1. backup the centre of the contours of the previous frame
     2. for each contour of the new frame,
         - if all the contour of the previous frame are far enough,
