@@ -10,9 +10,13 @@ contrastStretchingCV.cxx
 
 gaussianFilter.py
 sharpen.py
+gaussianFilter-trackbar.py
+sharpen-trackbar.py
 
 gaussianFilter.cxx
 sharpen.cxx
+gaussianFilter-trackbar.cxx
+sharpen-trackbar.cxx
 
 CMakeLists.txt
 
