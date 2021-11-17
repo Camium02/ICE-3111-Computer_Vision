@@ -30,11 +30,11 @@ The techniques you will use today and next week are:
 
 # Preliminaries
 
-There are 3 video files ([one_moving_object.avi](one_moving_object.avi), [change_of_lighting_conditions.avi](change_of_lighting_conditions.avi), and [two_moving_objects.avi](two_moving_objects.avi)) to test your code.
+There are 3 video files ([one_moving_object.avi](https://www.fpvidal.net/ICE3111/one_moving_object.avi), [change_of_lighting_conditions.avi](https://www.fpvidal.net/ICE3111/change_of_lighting_conditions.avi), and [two_moving_objects.avi](https://www.fpvidal.net/ICE3111/two_moving_objects.avi)) to test your code.
 
-- [![one_moving_object.gif](./one_moving_object.gif)](one_moving_object.avi)
-- [![change_of_lighting_conditions.gif](./change_of_lighting_conditions.gif)](change_of_lighting_conditions.avi)
-- [![two_moving_objects.gif](./two_moving_objects.gif)](two_moving_objects.avi)
+- [![one_moving_object.gif](./one_moving_object.gif)](https://www.fpvidal.net/ICE3111/one_moving_object.avi)
+- [![change_of_lighting_conditions.gif](./change_of_lighting_conditions.gif)](https://www.fpvidal.net/ICE3111/change_of_lighting_conditions.avi)
+- [![two_moving_objects.gif](./two_moving_objects.gif)](https://www.fpvidal.net/ICE3111/two_moving_objects.avi)
 
 Download them and save them on your disk.
 
