@@ -29,6 +29,7 @@ In `motionTracking.py`, add a preamble using Python comments. The preamble must 
 5. [Track the position of each moving object](#4-track-the-position-of-each-moving-object),
 6. [Compute the velocity of each object](#6-compute-the-velocity-of-each-object).
 
+**NOTE: You must test your new program (`motionTracking.py`) with the 3 videos I provided. You can use other videos too, but you must at least demonstrate that your code works with the one I provided."**
 
 # 1. Changes of illumination
 
