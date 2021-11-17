@@ -168,7 +168,7 @@ contours, hierarchy = cv2.findContours(foreground_mask, cv2.RETR_LIST, cv2.CHAIN
 
 # 4. Highlight moving objects in the original video
 
-Draw if contour that is big enough (whatever big enough might be) over the `frame_backup`.
+We will only draw a contour if it is big enough (whatever big enough might be). We will draw it over the `frame_backup`.
 
 ```python
 for cnt in contours:
@@ -178,8 +178,11 @@ for cnt in contours:
         cv2.rectangle(frame_backup, (x,y), (x+w, y+h), (0,255,0),2)
 ```
 
-Above, a contour is big enough if its area is larger than 0.1% of the area of the whole image.
+In the code above, a contour is big enough if its area is larger than 0.1% of the area of the whole image.
 You may have to tweak this number.
+
+**NOTE: Make sure that this is `frame_backup` that is written in `video_output`.**
+
 
 # 5. Track the position of each moving object
 
@@ -200,11 +203,12 @@ You may have to tweak this number.
 # 6. Compute the velocity of each object
 
 You must find a way to ignore contours of all the objects that are not moving between successive frames.
-You could update the background, and this is something we discussed in the lecture.
-Alternatively, you can
+You could
 
-1. backup the centre of the contours of the previous frame
-2. for each contour of the new frame,
-    - if all the contour of the previous frame are far enough,
-    - then consider the object is moving,
-    - else consider that it is static (hence part of the background).
+1. update the background, and this is something we discussed in the lecture.
+2. Alternatively, you can
+    1. backup the centre of the contours of the previous frame
+    2. for each contour of the new frame,
+        - if all the contour of the previous frame are far enough,
+        - then consider the object is moving,
+        - else consider that it is static (hence part of the background).
