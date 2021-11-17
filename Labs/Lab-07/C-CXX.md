@@ -187,6 +187,10 @@ cv::findContours( foreground_mask, contours, hierarchy, cv::RETR_LIST, cv::CHAIN
 
 We will only draw a contour if it is big enough (whatever big enough might be). We will draw it over the `frame_backup`.
 
+Your output video should look like this:
+
+![moving_objects_rect.png](moving_objects_rect.png)
+
 ```cpp
 for (auto cnt = contours.begin(); cnt != contours.end(); cnt++)
 {

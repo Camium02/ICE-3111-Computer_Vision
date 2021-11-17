@@ -174,6 +174,10 @@ contours, hierarchy = cv2.findContours(foreground_mask, cv2.RETR_LIST, cv2.CHAIN
 
 We will only draw a contour if it is big enough (whatever big enough might be). We will draw it over the `frame_backup`.
 
+Your output video should look like this:
+
+![moving_objects_rect.png](moving_objects_rect.png)
+
 ```python
 for cnt in contours:
     if cv2.contourArea(cnt) > 0.1 / 100.0 * frame_backup.shape[0] * frame_backup.shape[1]:
