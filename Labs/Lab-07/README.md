@@ -31,6 +31,7 @@ This week we want to replicate a computer vision pipeline similar to this YouTub
 
 In order to achieve this, we will take last week's program and
 
+- Handle changes of illumination,
 - "clean" the foreground mask to fill holes and remove tiny islands. This is often performed using mathematical morphology (opening and closing),
 - Identify the number of moving objects in the video by analysing the foreground mask,
 - Track the position of each moving object,
