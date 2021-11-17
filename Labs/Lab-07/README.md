@@ -1,5 +1,5 @@
 ---
-title: Lab 7 -- From motion detection to motion tracking.
+title: Lab 7 --  From motion detection to motion tracking and motion estimation.
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision
 date: Week 8
@@ -7,7 +7,7 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Lab 7 -- From motion detection to motion tracking
+# Lab 7 -- From motion detection to motion tracking and motion estimation in Python
 
 - (worth 25% of Assignment 2)
 - Deadline: 24/11/2021 at 23:59
