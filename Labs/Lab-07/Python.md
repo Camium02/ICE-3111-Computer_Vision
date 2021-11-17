@@ -27,7 +27,7 @@ In `motionTracking.py`, add a preamble using Python comments. The preamble must 
 3. [Identify the moving objects](#3-identify-the-moving-objects),
 4. [Highlight moving objects in the original video](#5-highlight-moving-objects-in-the-original-video), and
 5. [Track the position of each moving object](#4-track-the-position-of-each-moving-object),
-6. [Compute the velocity of each object](#6-compute-the-velocity-of-each-object).
+6. [Remove static objects if any](#6-remove-static-objects-if-any).
 
 **NOTE: You must test your new program (`motionTracking.py`) with the 3 videos I provided. You can use other videos too, but you must at least demonstrate that your code works with the one I provided."**
 
@@ -220,7 +220,7 @@ I get something like:
 
 Again, document your tests in your report.
 
-# 6. Compute the velocity of each object
+# 6. Remove static objects if any
 
 In the image above, you can see that `Object 0` is not actually an object that moves. You must find a way to ignore contours of all the objects that are not moving between successive frames as illustrated in:
 
