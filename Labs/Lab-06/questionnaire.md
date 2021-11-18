@@ -2,7 +2,7 @@
 
 (worth 25% of Assignment 2)
 
-Deadline: 17/11/2021 at 23:59
+Deadline: ~~17~~ 24/11/2021 at 23:59
 
 - Your name: \_\_\_\_\_\_\_\_\_\_\_\_\_
 - Your user ID: \_\_\_\_\_\_\_\_\_\_\_\_\_
