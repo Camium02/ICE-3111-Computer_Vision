@@ -28,8 +28,8 @@ I suggest that you keep in in the same folder as last week's lab as we are going
 1. [Changes of illumination](#1-changes-of-illumination),
 2. [Clean the foreground mask](#2-clean-the-foreground-mask),
 3. [Identify the moving objects](#3-identify-the-moving-objects),
-4. [Highlight moving objects in the original video](#5-highlight-moving-objects-in-the-original-video), and
-5. [Track the position of each moving object](#4-track-the-position-of-each-moving-object),
+4. [Highlight moving objects in the original video](#5-highlight-moving-objects-in-the-original-video),
+5. [Track the position of each moving object](#4-track-the-position-of-each-moving-object), and
 6. [Remove static objects if any](#6-remove-static-objects-if-any).
 
 **NOTE: You must test your new program (`motionTracking.cxx`) with the 3 videos I provided. You can use other videos too, but you must at least demonstrate that your code works with the one I provided."**
