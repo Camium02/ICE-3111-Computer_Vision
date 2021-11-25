@@ -1,5 +1,5 @@
 ---
-title: Lab 6 -- Background subtraction, motion detection, and motion estimation in Python
+title: Lab 6 -- Background subtraction and motion detection in Python
 author: Dr Franck P. Vidal
 subtitle: ICE-3111 Computer Vision
 date: Week 7
@@ -7,7 +7,7 @@ keywords: ICE3111, Computer Vision, C/C++, python, image processing, OpenCV, Ban
 institute: School of Computer Science and Electronic Engineering, Bangor University
 ---
 
-# Introduction to Background subtraction, motion detection, and motion estimation
+# Introduction to background subtraction and motion detection
 
 We'll create 4 programs today.
 I suggest that you create a new folder for this week. Create the following files:
