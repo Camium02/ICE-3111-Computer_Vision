@@ -89,63 +89,43 @@ Steps 1 to 5 of the overall pipeline are already covered in one of the notebook 
 Note that I wrote a function to crop images. You'll need it:
 
 ```python
-//------------------------------
-Mat autoCrop(const Mat& anImage)
-//------------------------------
-{
-    // Convert to grey scale
-    Mat grey_image;
-    cvtColor(anImage, grey_image, COLOR_BGR2GRAY);
+def autoCrop(anImage: np.array) -> np.array:
 
-    // Convert to binary
-    Mat binary_image;
-    threshold(grey_image, binary_image, 1, 255, THRESH_BINARY);
+    # Convert to grey scale
+    grey_image = cv2.cvtColor(anImage, cv2.COLOR_BGR2GRAY)
 
-    // Initialise the size of the bounding box
-    int width = binary_image.cols;
-    int height = binary_image.rows;
+    # Convert to binary
+    binary_image = cv2.threshold(grey_image, 1, 255, cv2.THRESH_BINARY)[1]
 
-    uint8_t* pixelPtr = (uint8_t*) binary_image.data;
-    int cn = binary_image.channels();
+    # Initialise the size of the bounding box
+    width = binary_image.shape[1]
+    height = binary_image.shape[0]
 
-    // Crop along the horizontal axis
-    for (int y = binary_image.rows - 1; y > 0; --y)
-    {
-        bool still_black = true;
-        for (int x = binary_image.cols - 1; x > 0; --x)
-        {
-            if (pixelPtr[y * binary_image.cols * cn + x * cn] != 0 && still_black)
-            {
-                still_black = false;
+    # Crop along the horizontal axis
+    for y in range(binary_image.shape[0] - 1, 1, -1):
+        still_black = True
+        for x in range(binary_image.shape[1] - 1, 1, -1):
+            if binary_image[y,x] != 0 and still_black:
+                still_black = False
 
-                if (width > x) width = x;
-            }
-        }
-    }
+                if width > x:
+                    width = x
 
-    // Crop the image
-    Rect bounding_rectangle(0, 0, width, height);
-    binary_image = binary_image(bounding_rectangle).clone();
-    pixelPtr = (uint8_t*) binary_image.data;
+    # Crop the image
+    binary_image = binary_image[0:height, 0:width]
 
-    // Crop along the vertical axis
-    for (int x = binary_image.cols - 1; x > 0; --x)
-    {
-        bool still_black = true;
-        for (int y = binary_image.rows - 1; y > 0; --y)
-        {
-            if (pixelPtr[y * binary_image.cols * cn + x * cn] != 0 && still_black)
-            {
-                still_black = false;
+    # Crop along the vertical axis
+    for x in range(binary_image.shape[1] - 1, 1, -1):
+        still_black = True
+        for y in range(binary_image.shape[0] - 1, 1, -1):
+            if binary_image[y,x] != 0 and still_black:
+                still_black = False
 
-                if (height > y) height = y;
-            }
-        }
-    }
+                if height > y:
+                    height = y
 
-    bounding_rectangle = Rect(0, 0, width, height);
-    return (anImage(bounding_rectangle));
-}
+    # Apply the bounding box
+    return anImage[0:height, 0:width]
 ```
 
 1. Import the left (`left_image`) and right (`right_image`) images (use `cv::imread`) (Steps `[2]` & `[3]` of the notebook):
