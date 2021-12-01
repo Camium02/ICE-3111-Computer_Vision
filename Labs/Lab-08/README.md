@@ -9,7 +9,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 # Lab 8 -- Panorama stitching using OpenCV's Feature Detection and Tracking Framework
 
-- (worth 25% of Assignment 2)
+- (worth 50% of Assignment 2)
 - Deadline: 15/12/2021 at 23:59
 - Write your answers in the template provided: [questionnaire.docx](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-08/questionnaire.docx)
 
