@@ -1,6 +1,7 @@
 CMakeLists.txt
 ICP3038_Lab_09.pdf
 panorama.cxx
+panorama.py
 bin
 
 left-1.jpg
