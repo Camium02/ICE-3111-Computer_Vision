@@ -15,7 +15,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 - You'll write your code in a single file (two if you count `CMakeLists.txt`): `panorama.cxx`
 
     - Create the new file, `panorama.cxx`
-    - add a preamble using C/C++ comments. The preamble must describe the program:
+    - Add a preamble using C/C++ comments. The preamble must describe the program:
 
         1. the author of the program (you),
         2. the date,
@@ -38,7 +38,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
     - [centre-3.jpg](centre-3.jpg)
     - [right-3.jpg](right-3.jpg)
 - Move them in the same directory as `CMakeLists.txt`.
-- Edit the `CMakeLists.txt` file again, this time to copy the image in your binary directory. This way it will be easy for `panorama.cxx` to locate the input video files.
+- Edit the `CMakeLists.txt` file again, this time to copy the image in your binary directory. This way it will be easy for `panorama.cxx` to locate the input image files.
 
     ```cmake
     #FILE (COPY "${CMAKE_CURRENT_SOURCE_DIR}/left-1.jpg"
@@ -68,7 +68,8 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 This lab relies on the lectures of:
   - Week 9 on Feature Detection and Tracking, and
   - Week 10 on Transformations and Panoramas.
-Make sure you are up-to-date with the lectures. There are slides, recording, and Jupyter notebooks. They'll help you understanding the lab. In particular, you are expected to have studied the code in the following Jupyter Notebook:
+
+Make sure you are up-to-date with the lectures. There are slides, recordings, and Jupyter notebooks. They'll help you understanding the lab. In particular, you are expected to have studied the code in the following Jupyter Notebook:
 
 [https://github.com/effepivi/ICP3038/blob/master/Lectures/12-feature-detection/notebooks/1-detect-describe-match-using-ORB-in-opencv.ipynb](https://nbviewer.jupyter.org/github/effepivi/ICP3038/blob/master/Lectures/12-feature-detection/notebooks/1-detect-describe-match-using-ORB-in-opencv.ipynb).
 
@@ -85,7 +86,7 @@ I would use the usual suspects:
 
 # Add the `namespaces`
 
-I personally use `std` and `cv`.
+I personally use `std` (Step `[28]`) and `cv` (Step `[29]`).
 
 # Add an empty `main` function
 
@@ -94,7 +95,7 @@ Make sure you `return 0`.
 
 # Compile
 
-At this stage you have an empty program, I know, I know. However, I would still do it. The compilation is to test that `CMakeLists.txt` is working well and that I can start the fun part, coding.
+At this stage you have an empty program, I know, I know. However, I would still do it. The compilation is to test that `CMakeLists.txt` is working well and that we can start the fun part, coding.
 
 # Inputs/output
 
@@ -105,27 +106,30 @@ $ panorama left-1.jpg right-1.jpg panorama-1.jpg
 $ panorama left-2.jpg middle-2.jpg right-2.jpg panorama-2.jpg
 ```
 
-You can of course hard-code the filenames, but it is not as flexible as the command line.
-Mark will be deducted if filenames are hard-coded.
-
 There must be at least 4 arguments (`argc >= 4`). The 1st one (`argv[0]`) is always the executable program (`panorama`). The last argument is the output file (`argv[argc - 1]`).
 Other arguments correspond to the input image filenames (from left to right).
 
-# Adapt the code from the Jupyter Notebook
+You can of course hard-code the filenames for now, but it is not as flexible as the command line.
+Mark will be deducted if filenames are hard-coded.
+
+# Computer Vision Pipeline to Stitch Images Together
 
 Look at the pipeline below. There are 7 main steps:
 
-1. Opening the left and right images.
-2. For each image, find features (also called keypoints).
-3. For each image, extract the features (also called describe the features).
-4. For each feature of each image, find the corresponding feature in the other image.
-5. Only keep "good matches".
+1. Opening the left and right images (Steps `[30]` & `[31]` of the notebook).
+2. For each image, find features (also called keypoints) (Steps `[32]` & `[33]`).
+3. For each image, extract the features (also called describe the features) (Steps `[34]` & `[35]`).
+4. For each feature of each image, find the corresponding feature in the other image (Step `[36]`).
+5. Only keep "good matches" (Steps `[37]` & `[38]`).
 6. Find the matrix that transforms the position of the features in one image into the position of the corresponding features in the other image.
 7. Apply the transformation on one image and stitch it with the other one.
 
 ![Computer Vision Pipeline for Panorama Stitching](panorama.svg)
 
-Steps 1 to 5 are already covered in one of the notebook seen in the lecture. You'll complete it in your own program ([see here](https://nbviewer.jupyter.org/github/effepivi/ICP3038/blob/master/Lectures/12-feature-detection/notebooks/1-detect-describe-match-using-ORB-in-opencv.ipynb)). You can use it as a starting point. Note that Steps after `[38]` may not be useful for the lab.
+
+# Adapt the code from the Jupyter Notebook
+
+Steps 1 to 5 of the overall pipeline are already covered in one of the notebook seen in the lecture. You'll complete it in your own program ([see here](https://nbviewer.jupyter.org/github/effepivi/ICP3038/blob/master/Lectures/12-feature-detection/notebooks/1-detect-describe-match-using-ORB-in-opencv.ipynb)). You can use it as a starting point. Note that Steps after `[39]` may not be useful for the lab.
 
 Note that I wrote a function to crop images. You'll need it:
 
@@ -204,13 +208,13 @@ Mat autoCrop(const Mat& anImage)
 
 4. Pairwise matching between the features of the left and right images:
     - Match keypoints in `left_image` and `right_image` by comparing their corresponding feature vectors. Here we use a brute-force algorithm and the [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance).
-    - Now the features have been matched, we need to filter the result. We want to limit the number of false-positives: Only small distances are valid. Create two variables to store the smallest and largest distance between two features of `matches`.
+
+5. Now the features have been matched, we need to filter the result. We want to limit the number of false-positives: Only small distances are valid. Create two variables to store the smallest and largest distance between two features of `matches`.
     - We will only consider matches whose distance is less than a given threshold, e.g. `mid_distance = min_dist + (max_dist - min_dist) / 2.0`.
-    -
-    __IN YOUR REPORT, USE `cv::drawMatches` TO SHOW THE GOOD MATCHES. SEE THE NOTEBOOK FOR AN EXAMPLE.__
+    - __IN YOUR REPORT, USE `cv::drawMatches` TO SHOW THE GOOD MATCHES. SEE THE NOTEBOOK FOR AN EXAMPLE.__
     *Drawing the good matches will help you in adjusting the threshold (if needed, of course). You could even add a slider (trackbar) to do it interactively.*.
 
-5. Warping images (compute the projection matrix ![$R_{10}$](R_10.gif)).
+6. Warping images (compute the projection matrix ![$R_{10}$](R_10.gif)).
 During this step, we need to compute the transformation matrix that will convert the 2D positions of the keypoints of one image into the same space as the ones of the other image.
     - First of all, we need to store the 2D positions of the keypoints for both images. We create two STL vectors of `Point2f`
 (one per set of keypoints):
@@ -240,7 +244,8 @@ During this step, we need to compute the transformation matrix that will convert
     ```cpp
     Mat homography_matrix(findHomography(right_image_point_set, left_image_point_set, RANSAC));
     ```
-    - Then we apply the new transformation matrix to deform the image, then we crop it:
+
+7. Then we apply the new transformation matrix to deform the image, then we crop it:
     ```cpp
     Mat panorama_image;
     warpPerspective(right_image, panorama_image, homography_matrix, Size(left_image.cols + right_image.cols, left_image.rows + right_image.rows));
