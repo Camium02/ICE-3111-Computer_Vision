@@ -1,1 +1,1 @@
-![Week 1 Computer Vision mindmap](screenshot.png)
+![Week 4 -- Computer Vision -- Mindmap](screenshot.png)
