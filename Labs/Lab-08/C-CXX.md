@@ -193,26 +193,34 @@ Mat autoCrop(const Mat& anImage)
 }
 ```
 
-1. Import the left (`left_image`) and right (`right_image`) images (use `cv::imread`);
-2. For each image, detect keypoints:
+1. Import the left (`left_image`) and right (`right_image`) images (use `cv::imread`) (Steps `[30]` & `[31]` of the notebook):
+    - Use `imshow` to check if the images are fine.
+    - Compile.
+    - Test your program.
+2. For each image, detect keypoints (Steps `[32]` & `[33]`):
     - Create a feature detector, e.g. using the Oriented FAST and Rotated BRIEF (ORB) method.
     - Detect the keypoints in `left_image` and `right_image`.
-3. For each keypoint, describe features:
+3. For each keypoint, describe features (Steps `[34]` & `[35]`):
     - Create a compatible feature extractor:
     - Create the feature vector for the keypoints.
 
-    The keypoint descriptors of an image is a huge matrix, with one row per keypoint, one column per feature:
+    The keypoint descriptors of an image is a huge matrix, with one row per keypoint, one column per feature.
+    - **SAVE THE FEATURE DESCRIPTOR OF ONE OF THE IMAGES, AND ADD IT TO YOUR REPORT.** This is to test that the code is working well.
+    - Compile.
+    - Test your program.
 
-    ![Left image descriptor](img/left_image_descriptors.png)
+    <!-- ![Left image descriptor](img/left_image_descriptors.png) -->
     <!-- ![Right image descriptor](img/left_image_descriptors.png) -->
 
-4. Pairwise matching between the features of the left and right images:
+4. Pairwise matching between the features of the left and right images (Step `[36]`):
     - Match keypoints in `left_image` and `right_image` by comparing their corresponding feature vectors. Here we use a brute-force algorithm and the [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance).
 
-5. Now the features have been matched, we need to filter the result. We want to limit the number of false-positives: Only small distances are valid. Create two variables to store the smallest and largest distance between two features of `matches`.
-    - We will only consider matches whose distance is less than a given threshold, e.g. `mid_distance = min_dist + (max_dist - min_dist) / 2.0`.
-    - __IN YOUR REPORT, USE `cv::drawMatches` TO SHOW THE GOOD MATCHES. SEE THE NOTEBOOK FOR AN EXAMPLE.__
+5. Now the features have been matched, we need to filter the result (Steps `[37]` & `[38]`). We want to limit the number of false-positives: Only small distances are valid. Create two variables to store the smallest and largest distance between two features of `matches`.
+    - We will only consider matches whose distance is less than a given threshold, e.g. `threshold = min_dist + (max_dist - min_dist) / 2.0`.
+    - __IN YOUR REPORT, USE `cv::drawMatches` TO SHOW THE GOOD MATCHES (Step `[39]`).__
     *Drawing the good matches will help you in adjusting the threshold (if needed, of course). You could even add a slider (trackbar) to do it interactively.*.
+    - Compile.
+    - Test your program.
 
 6. Warping images (compute the projection matrix ![$R_{10}$](R_10.gif)).
 During this step, we need to compute the transformation matrix that will convert the 2D positions of the keypoints of one image into the same space as the ones of the other image.
@@ -253,7 +261,11 @@ During this step, we need to compute the transformation matrix that will convert
     ```
     I used `imshow` for debugging purposes.
     ![Right image after warping](img/transformed_right_image.png)
-    - Now we can copy the left image onto the transformed right image:
+    - Compile.
+    - Test your program.
+    - Add the corresponding image in your report.
+
+8. Now we can copy the left image onto the transformed right image:
     ```cpp
     Mat left_ROI(panorama_image(Rect(0,
                                  0,
@@ -266,18 +278,26 @@ During this step, we need to compute the transformation matrix that will convert
     ```
     ![Image before cropping](img/before_cropping_panorama.png)
 
-    - Now we can crop the image with the autoCrop function I provided:
+    - Compile.
+    - Test your program.
+    - Add the corresponding image in your report.
+
+9. Now we can crop the image with the autoCrop function I provided:
     ```cpp
     panorama_image = autoCrop(panorama_image);
     ```
     ![Image after cropping](img/final_panorama.png)
 
-    __NOTE: IN YOUR REPORT YOU MUST DISPLAY THE INTERMEDIATE IMAGES TO ILLUSTRATE WHAT THE CODE DOES.__ As we say, "an image is worth 10,000 words".
+    - Compile.
+    - Test your program.
+    - Add the corresponding image in your report.
 
-- Visualise (`imshow`) and save (`imwrite`) the panorama. Job done!
+10. **Additional work:** Use a slider to adjust threshold using a trackbar.
+    - Add evidence in your report
 
-- **Additional work:** Use a slider to adjust threshold using a trackbar.
-- **Additional work:** Make it possible to stitch together 3 or more images.
+11. **Additional work:** Make it possible to stitch together 3 or more images.
     1. make sure you use the command line arguments to load the image files,
     2. at the end of the stitching, `panorama_image` becomes `left_image`,
     3. add a for loop to repeat the main steps.
+
+    - Add evidence of testing in your report
