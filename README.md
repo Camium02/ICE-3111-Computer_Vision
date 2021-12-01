@@ -12,4 +12,5 @@ All the code and documents that I am happy to share from the Computer Vision mod
     - [Lab-05](../../tree/main/Labs/Lab-05): Introduction to Spatial Filtering: Application to image sharpening.
     - [Lab-06](../../tree/main/Labs/Lab-06): Background subtraction and motion detection.
     - [Lab-07](../../tree/main/Labs/Lab-07): Motion tracking.
+    - [Lab-08](../../tree/main/Labs/Lab-08): Panorama stitching.
 - [Mindmap](../../tree/main/mindmap): Contains a mindmap of all the concepts addressed in this module.

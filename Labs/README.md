@@ -12,3 +12,4 @@ All the labs from the Computer Vision module I teach to computer science student
 - [Lab-05](../../../tree/main/Labs/Lab-05): Introduction to Spatial Filtering: Application to image sharpening.
 - [Lab-06](../../../tree/main/Labs/Lab-06): Background subtraction and motion detection.
 - [Lab-07](../../../tree/main/Labs/Lab-07): Motion tracking.
+- [Lab-08](../../../tree/main/Labs/Lab-08): Panorama stitching.
