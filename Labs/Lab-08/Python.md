@@ -11,6 +11,16 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 # Preliminaries
 
+- **You must make sure you save ALL the images created within your image stitching pipeline, including intermediate images, as evidence of testing**. You must add these images in your report to document your tests.
+    - You may use `imwrite` or `imshow` with screenshots.
+    - For one iteration of the stitching, you'll create 7 images:
+        - Left image,
+        - Right image,
+        - All the matches (image created using `drawMatches`),
+        - Good matches only (image created using `drawMatches`),
+        - Right image after transformation (i.e. the result of `warpPerspective`),
+        - Stitching before cropping, and
+        - Stitching after cropping.
 - Go to the same directory as the one you used for previous labs.
 - You'll write your code in a single file: `panorama.py`
 
