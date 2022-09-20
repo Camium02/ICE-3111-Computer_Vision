@@ -11,7 +11,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 
 
 - (worth 60% of Assignment 1)
-- Deadline: 10/11/2021 at 23:59
+- Deadline: 10/11/2022 at 23:59
 - Write your answers in the template provided: [questionnaire.docx](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-05/questionnaire.docx)
 
 # Introduction

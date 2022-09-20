@@ -10,7 +10,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 # Lab 1 -- Image Analysis Using ImageJ/Fiji
 
 - (worth 5% of Assignment 1)
-- Deadline: 06/10/2021 at 23:59
+- Deadline: 06/10/2022 at 23:59
 - Write your answers in the template provided: [questionnaire.docx](questionnaire.docx)
 
 ## Introduction
