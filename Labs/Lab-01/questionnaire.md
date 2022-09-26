@@ -2,7 +2,7 @@
 
 (worth 5% of Assignment 1)
 
-Deadline: 06/10/2021 at 23:59
+Deadline: 06/10/2022 at 23:59
 
 - Your name: \_\_\_\_\_\_\_\_\_\_\_\_\_
 - Your user ID: \_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -33,6 +33,12 @@ Deadline: 06/10/2021 at 23:59
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
+2. Nothing to report here. Go to 5.
+
+3. Nothing to report here. Go to 5.
+
+4. Nothing to report here. Go to 5.
+
 5. Before you release the mouse's button, look at the status bar and note the length of the line segment you just drew. \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
 
 6. Is the distance given in mm or number of pixels? (compare with the lengths of the diagonal you computed with Pythagoras' theorem) \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
@@ -53,7 +59,8 @@ Deadline: 06/10/2021 at 23:59
 3. What is the average pixel value in the image? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
 4. What is the standard deviation? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
 5. What is the dynamic range? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
-6. The intensity histogram is a graph that shows the number of pixels in an image at each different intensity value found in that image. Insert the intensity histogram below [1 mark]:
+6. The intensity histogram is a graph that shows the number of pixels in an image at each different intensity value found in that image.
+7. Insert the intensity histogram below [1 mark]:
 
 
 
@@ -64,7 +71,8 @@ Deadline: 06/10/2021 at 23:59
 3. What is the average pixel value in the part of the image corresponding to the PMMA block? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
 4. What is the standard deviation? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
 5. What is the range of pixel values in this region of the image? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
-6. Insert the corresponding histogram below [1 mark]:
+6. Nothing to report here. Go to 7.
+7. Insert the corresponding histogram below [1 mark]:
 
 
 ### Background
@@ -74,7 +82,8 @@ Deadline: 06/10/2021 at 23:59
 3. What is the average pixel value in the part of the image corresponding to the background? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
 4. What is the standard deviation? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
 5. What is the range of pixel values in this region of the image? \_\_\_\_\_\_\_\_\_\_\_\_\_ [1 mark]
-6. Insert the corresponding histogram below [1 mark]:
+6. Nothing to report here. Go to 7.
+7. Insert the corresponding intensity histogram below [1 mark]:
 
 
 ### Compare the 3 histograms
