@@ -159,14 +159,14 @@ If we investigate a bit. What is the min and max pixel values? The pixel data in
 
     ![Properties dialog box](img/properties.png)
 6. Similarly to what we did last week, use the line selection tool to ![Properties dialog box](img/line.png)
-    - measure the diameter in um of one of the bright circles,
-    - measure the diameter in um of one of the dark circles,
-    - measure the width and height in um of the rectangular structure.
+    1. Measure the diameter in um of one of the bright circles,
+    2. Measure the diameter in um of one of the dark circles,
+    3. Measure the width and height in um of the rectangular structure.
     - (FYI: Iwan and I conducted a user-study where we asked experts to perform similar measurements. We compared manual measurements with those provided by our computer vision algorithm)
 7. What is the percentage of the pixels of the image that corresponds to
-    - tungsten (bright circles)
-    - silicon carbide (dark circles), and
-    - titanium/aluminium/vanadium alloy (rectangular structure).
+    1. Tungsten (bright circles)
+    2. Silicon carbide (dark circles), and
+    3. Titanium/aluminium/vanadium alloy (rectangular structure).
     - Tip: Use the Threshold dialog box, fiddle with the sliders, note the percentage and compute the area in um<sup>2</sup> as we did before.
 
 ## Don't forget
