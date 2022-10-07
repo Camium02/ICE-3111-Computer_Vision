@@ -14,13 +14,17 @@ Deadline: 27/10/2021 at 23:59
 - Use (colour) syntax highlighting.
 - Show line numbers (optional)
 
+## 1. Preliminaries: Install OpenCV if needed
+
+Nothing to report here.
+
 ## Choose your programming language
 
 - Why did you choose Python or C/C++?
 (I won't mark this answer, I am just gathering feedback from you. Any answer is valid)
 
 
-## Load and display an image [9 marks in total]
+## 2. Load and 3. display an image [9 marks in total]
 
 - Add your source code below [5 marks]
 - **DO NOT FORGET TO ADD A PREAMBLE** [1 mark]. It must describe the program:
@@ -33,14 +37,14 @@ Deadline: 27/10/2021 at 23:59
 - Add evidence of testing using three different images [3 marks].
     - Hint: just add the screenshots of your OpenCV window.
 
-## Convert a RGB image in a greyscale image [8 marks in total]
+## 4. Convert a RGB image in a greyscale image [8 marks in total]
 
 - Add your source code below [4 marks]
 - **DO NOT FORGET TO ADD A PREAMBLE** [1 mark].
 - Add evidence of testing using three different images [3 marks].
     - Hint: just add the screenshots of your OpenCV window.
 
-## Find the smallest and largest pixel values in an image [14 marks in total]
+## 5. Find the smallest and largest pixel values in an image [14 marks in total]
 
 - Add a screenshot of your test image created using ImageJ after the division [2 marks]
 - Add a screenshot of its histogram [1 mark]
