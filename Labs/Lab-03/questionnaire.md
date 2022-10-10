@@ -24,7 +24,7 @@ Nothing to report here.
 (I won't mark this answer, I am just gathering feedback from you. Any answer is valid)
 
 
-## 2. Load and 3. display an image [9 marks in total]
+## 2. and 3 - Load and display an image [9 marks in total]
 
 - Add your source code below [5 marks]
 - **DO NOT FORGET TO ADD A PREAMBLE** [1 mark]. It must describe the program:
