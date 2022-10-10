@@ -341,6 +341,6 @@ In your lab report, you must include:
 
 To complete the lab report and to submit it.
 
-## Next week
+## Next time
 
 We will use spatial filters to blur an image, find edges, etc.
