@@ -1,9 +1,8 @@
 # ICE3111 -- Computer Vision -- Lab 5 -- questionnaire
 
-(worth 60% of Assignment 1)
 
-Deadline: 10/11/2021 at 23:59
-
+- Deadline: 10/11/2022 at 23:59
+- Worth 60% of Assignment 1
 - Your name: \_\_\_\_\_\_\_\_\_\_\_\_\_
 - Your user ID: \_\_\_\_\_\_\_\_\_\_\_\_\_
 
