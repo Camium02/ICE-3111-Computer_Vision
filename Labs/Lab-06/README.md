@@ -10,7 +10,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 # Lab 6 -- Background subtraction and motion detection
 
 - (worth 25% of Assignment 2)
-- Deadline: 17/11/2022 at 23:59
+- Deadline: 24/11/2022 at 23:59
 - Write your answers in the template provided: [questionnaire.docx](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-06/questionnaire.docx)
 
 This lab relies on the lecture of Week 8: Motion Detection and Tracking (I know it's next week, but you'll see a practical introduction in this lab).
