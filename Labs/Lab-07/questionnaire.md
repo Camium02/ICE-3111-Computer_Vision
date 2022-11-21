@@ -1,6 +1,6 @@
 # ICE3111 -- Computer Vision -- Lab 7 -- Lab report
 
-(worth 25% of Assignment 2)
+(worth 75% of Assignment 2)
 
 Deadline: 24/11/2022 at 23:59
 
@@ -43,7 +43,7 @@ Deadline: 24/11/2022 at 23:59
 - You must show here evidence of testing
     - Use several videos
     - Use various structuring element size
-- What is the final filter size that you selected and why?
+- What is the final structuring element size that you selected and why?
 
 # ~~3. Identify the moving objects~~
 
@@ -55,12 +55,12 @@ The testing of this part is performed in the next section.
     - Use several videos
 - Discuss deficiencies of the current implementation, i.e. what are the issues we should fix?
 
-# 5. Track the position of each moving object [5 marks]
+# 5. Track the position of each moving object [10 marks]
 
 - You must show here evidence of testing
     - Use several videos
 
-# 6. Remove static objects if any [25 marks]
+# 6. Remove static objects if any [20 marks]
 
 - Give a description of your algorithm (use flowchart or pseudocode)
 - You must show here evidence of testing
@@ -69,4 +69,4 @@ The testing of this part is performed in the next section.
 # Source code [25]
 
 - Make sure the code is commented to explain what it is doing.
-- **DO NOT FORGET TO ADD A PREAMBLE** [1 mark].
+- **DO NOT FORGET TO ADD A PREAMBLE** to explain what the program does. Also explain the command line arguments if any. [1 mark].

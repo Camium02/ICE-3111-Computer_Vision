@@ -10,7 +10,7 @@ institute: School of Computer Science and Electronic Engineering, Bangor Univers
 # Lab 7 -- From motion detection to motion tracking and motion estimation in Python
 
 - (worth 25% of Assignment 2)
-- Deadline: 24/11/2022 at 23:59
+- Deadline: 08/12/2022 at 23:59
 - Write your answers in the template provided: [questionnaire.docx](https://github.com/effepivi/ICE-3111-Computer_Vision/raw/main/Labs/Lab-07/questionnaire.docx)
 
 This lab relies on the lecture of Week 8: Motion Detection and Tracking. It also relies on the [lab from last week](../Lab-06) as we are going to improve it. **Make sure you completed it!**
