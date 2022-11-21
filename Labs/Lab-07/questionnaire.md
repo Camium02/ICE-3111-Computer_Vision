@@ -2,7 +2,7 @@
 
 (worth 75% of Assignment 2)
 
-Deadline: 24/11/2022 at 23:59
+- Deadline: 08/12/2022 at 23:59
 
 - Your name: \_\_\_\_\_\_\_\_\_\_\_\_\_
 - Your user ID: \_\_\_\_\_\_\_\_\_\_\_\_\_
